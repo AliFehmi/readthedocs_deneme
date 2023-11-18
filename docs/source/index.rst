@@ -1,5 +1,5 @@
 Welcome to Super Twin's documentation!
-Emire selam
+Berkaya selam
 ======================================
 Digital SuperTwin
 SuperTwin is a digital twin for high-performance computing clusters which creates a structured data representation over an HPC system, manages data input from a collection of tools and enable reasonings among them. Current capabilities of SuperTwin are:
