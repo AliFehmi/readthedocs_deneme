@@ -1,14 +1,14 @@
 Welcome to Super Twin's documentation!
-Berkaya selam
 ======================================
 Digital SuperTwin
+_________________
 SuperTwin is a digital twin for high-performance computing clusters which creates a structured data representation over an HPC system, manages data input from a collection of tools and enable reasonings among them. Current capabilities of SuperTwin are:
 
-- Monitoring
-- Automated PMU configuration
-- Automated profiling
-- Modelling
-- Knowledge retrievals
+-Monitoring
+-Automated PMU configuration
+-Automated profiling
+-Modelling
+-Knowledge retrievals
 
 This real-time super computer monitoring project is a part of SparCity which is an international project where 6 partners from 4 
 different countries collaborate with 2.6 M € funding by the European High Performance Computing Joint Undertaking (EuroHPC JU). 
