@@ -38,64 +38,94 @@ You need
 
 1.1) MongoDB Installation
 
-Import the public GPG key
+First step is to install the GPT key.
 
 .. code-block:: console
 
-   wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+   sudo apt-get install gnupg curl
 
-The operation should respond with an OK.
-
-.. note::
-
-   If you receive an error indicating that gnupg is not installed:
-
-   .. code-block:: console
-
-      sudo apt-get install gnupg
-
-   Then retry the first command.
-
-   
-Create a file in the sources.list.d directory named mongodb-org-4.4.list
+Next import the MongoDB public GPG key.
 
 .. code-block:: console
+   curl -fsSL https://pgp.mongodb.com/server-7.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+   --dearmor
 
-   echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-
-Reload the local package database:
+Create repository for MongoDB
 
 .. code-block:: console
+   echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
 
+Update local package index.
+.. code-block:: console
    sudo apt-get update
 
-Install MongoDB
+Finally to install mongoDB.
 
 .. code-block:: console
-
    sudo apt-get install -y mongodb-org
-
-Start the MongoDB service:
-
+You may check if the installation was successful by running this command.
 .. code-block:: console
+   mongod --version
 
-   sudo systemctl start mongod
 
-.. note:: 
 
-   If you receive an error similar to this: Failed to start mongod.service: Unit mongod.service not found.
 
-   .. code-block:: console 
 
-      sudo systemctl daemon-reload
 
-   Then, run the above command again.
 
-Check the service’s status
+.. The operation should respond with an OK.
 
-.. code-block:: console
+.. .. note::
 
-   sudo systemctl status mongod
+..    If you receive an error indicating that gnupg is not installed:
+
+..    .. code-block:: console
+
+..       sudo apt-get install gnupg
+
+..    Then retry the first command.
+
+   
+.. Create a file in the sources.list.d directory named mongodb-org-4.4.list
+
+.. .. code-block:: console
+
+..    echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+
+.. Reload the local package database:
+
+.. .. code-block:: console
+
+..    sudo apt-get update
+
+.. Install MongoDB
+
+.. .. code-block:: console
+
+..    sudo apt-get install -y mongodb-org
+
+.. Start the MongoDB service:
+
+.. .. code-block:: console
+
+..    sudo systemctl start mongod
+
+.. .. note:: 
+
+..    If you receive an error similar to this: Failed to start mongod.service: Unit mongod.service not found.
+
+..    .. code-block:: console 
+
+..       sudo systemctl daemon-reload
+
+..    Then, run the above command again.
+
+.. Check the service’s status
+
+.. .. code-block:: console
+
+..    sudo systemctl status mongod
    
 1.2) MongoDB Compass Installation
 
