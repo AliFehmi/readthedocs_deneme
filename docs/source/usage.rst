@@ -47,16 +47,17 @@ First step is to install the GPT key.
 Next import the MongoDB public GPG key.
 
 .. code-block:: console
-   curl -fsSL https://pgp.mongodb.com/server-7.0.asc | \
-   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
-   --dearmor
+
+   curl -fsSL https://pgp.mongodb.com/server-7.0.asc | \sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \--dearmor
 
 Create repository for MongoDB
 
 .. code-block:: console
+
    echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
 
 Update local package index.
+
 .. code-block:: console
    sudo apt-get update
 
@@ -64,7 +65,9 @@ Finally to install mongoDB.
 
 .. code-block:: console
    sudo apt-get install -y mongodb-org
+
 You may check if the installation was successful by running this command.
+
 .. code-block:: console
    mongod --version
 
