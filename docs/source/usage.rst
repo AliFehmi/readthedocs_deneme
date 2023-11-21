@@ -15,12 +15,8 @@ You need
 - MongoDB
 - InfluxDB 1.8
 - Grafana 9+ (OSS)
-   - Plugins
-      - JSON
-      - Node Graph API
-      - Plotly panel
-- pcp-export-pcp2influxdb
-- Python 3.7+
+- Additional additional requierements
+- Run the server
 
 .. warning::
 
@@ -156,7 +152,7 @@ Click on the user that you created and click **Add service account token** and t
 
 Copy the code to the clipboard.
 
-.. image:: ../images/add_service.png
+.. image:: ../images/copy_clipboard.png
    :width: 450
 
 Open your terminal and open your **env.txt** file.
@@ -170,7 +166,8 @@ Replace the **GRAFANA_TOKEN** code with the code that you copied to your clipboa
 .. image:: ../images/paste_to_env.png
    :width: 450
 
-1.6) Install additional requirements
+1.5) Install additional requirements
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: console
 
@@ -195,6 +192,7 @@ Install these requierements to the remote
    /var/lib/pcp/pmdas/perfevent$ sudo ./Install
 
 1.7) Run the server
+^^^^^^^^^^^^^^^^^^^
 
 Clone the repository
 
