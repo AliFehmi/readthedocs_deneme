@@ -12,9 +12,9 @@ On local host
 
 You need
 
-- InfluxDB 1.8
 - MongoDB
-- Grafana 9+
+- InfluxDB 1.8
+- Grafana 9+ (OSS)
    - Plugins
       - JSON
       - Node Graph API
@@ -37,6 +37,7 @@ You need
 
 
 1.1) MongoDB Installation
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 First step is to install the GPT key.
 
@@ -75,152 +76,133 @@ You may check if the installation was successful by running this command.
    mongod --version
    
 1.2) MongoDB Compass Installation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Download the MongoDB compass .deb file 
+Download the MongoDB Compass
+
+After the installation, start the service
+.. code-block:: console
+
+   sudo systemctl start mongod.service
+   
+You may check if the system is active
 
 .. code-block:: console
 
-   wget https://downloads.mongodb.com/compass/mongodb-compass_1.28.1_amd64.deb
+   sudo systemctl status mongod.service
    
-Install the .deb file
-
-.. code-block:: console
-
-   sudo apt install ./mongodb-compass_1.28.1_amd64.deb
-   
-Open the application and click on the connect button.
+..Open the application and click on the connect button.
 
 1.3) InfluxDB Installation
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Add the InfluxData repository
+Install InfluxDB
 
 .. code-block:: console
 
-   wget -q https://repos.influxdata.com/influxdb.key
+   wget https://dl.influxdata.com/influxdb/releases/influxdb_1.8.10_amd64.deb
+   sudo dpkg -i influxdb_1.8.10_amd64.deb
    
-Setup the repository
+You may check if the installation was successful by running this command.
 
 .. code-block:: console
 
-   echo '23a1c8836f0afc5ed24e0486339d7cc8f6790b83886c4c96995b88a061c5bb5d influxdb.key' | sha256sum -c && cat influxdb.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/influxdb.gpg > /dev/null
-   echo 'deb [signed-by=/etc/apt/trusted.gpg.d/influxdb.gpg] https://repos.influxdata.com/debian stable main' | sudo tee /etc/apt/sources.list.d/influxdata.list
-   
-Update your server and install InfluxDB 1.8
+   sudo influxd
+
+1.4) Grafana 10.2.1 (OSS) Installation
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install the Grafana
 
 .. code-block:: console
 
-   sudo apt-get update && sudo apt-get install influxdb
+   sudo apt-get install -y adduser libfontconfig1 musl
+   wget https://dl.grafana.com/oss/release/grafana_10.2.1_amd64.deb
+   sudo dpkg -i grafana_10.2.1_amd64.deb
 
-Unmask the service (Required for Ubuntu 15.04+)
-
-.. code-block:: console
-
-   sudo systemctl unmask influxdb.service
-
-Start InfluxDB Service 
+Start Grafana service
 
 .. code-block:: console
 
-   sudo systemctl start influxdb
+   sudo systemctl start grafana-server.service
 
-Check the status to see if it runs correctly
-
-.. code-block:: console
-
-   sudo systemctl start influxdb
-
-1.4) Grafana Installation
-
-Install the dependencies
-
-.. code-block:: console
-
-   apt-get install wget curl gnupg2 apt-transport-https software-properties-common -y
-
-Add the Grafana GPG key
-
-.. code-block:: console
-
-   wget -q -O - https://packages.grafana.com/gpg.key | apt-key add -
-
-Add the Grafana repository
+You may check if the system is active
 
 .. code-block:: console
    
-   echo "deb https://packages.grafana.com/oss/deb stable main" | tee -a /etc/apt/sources.list.d/grafana.list
+   sudo systemctl status grafana-server.service
 
-Update your server
+Connect to localhost:3000/ and the Grafana login page will show up
+
+.. image:: ../images/login.png
+   :width: 450
+
+You need to click **Toggle menu** from the left top and go to the **Administrations -> Service accounts**. Click **Add service acount** from the right top.
+
+.. image:: ../images/add_service.png
+   :width: 450
+
+Choose a display name and change the role to the **Admin** and create account.
+
+.. image:: ../images/create_account.png
+   :width: 450
+
+Click on the user that you created and click **Add service account token** and than click generate token.
+
+.. image:: ../images/geenrate_token.png
+   :width: 450
+
+Copy the code to the clipboard.
+
+.. image:: ../images/add_service.png
+   :width: 450
+
+Open your terminal and open your **env.txt** file
 
 .. code-block:: console
+   
+   code env.txt
 
-   apt-get update
+Replace the **GRAFANA_TOKEN** code with the code that you copied to your clipboard.
 
-Install Grafana
+.. image:: ../images/paste_to_env.png
+   :width: 450
 
-.. code-block:: console
-
-   apt-get install grafana -y
-
-Start Grafana service:
-
-.. code-block:: console
-
-   systemctl start grafana-server
-   systemctl status grafana-server
-
-Connect to localhost:3000/ and enter your credentials. Under the configurations drop-down, select plugins and install the following plugins:
-JSON
-Node Graph API
-Plotly Panel
-
-1.5) Install pcp-export-pcp2influxdb
-You can download it from https://packages.debian.org/sid/utils/pcp-export-pcp2influxdb based on the architecture of your computer.
 
 1.6) Install additional requirements
 
 .. code-block:: console
 
-   pip install cryptography==2.8
-   pip install Flask==2.2.2
-   pip install Flask_Cors==3.0.10
-   pip install grafanalib==0.6.3
-   pip install influxdb==5.3.1
-   pip install matplotlib==3.4.1
-   pip install numpy==1.17.4
-   pip install pandas==1.5.1
-   pip install paramiko==2.6.0
-   pip install plotly==5.11.0
-   pip install pymongo==4.1.1
-   pip install requests==2.22.0
-   pip install scp==0.14.4
+   sudo apt install python3-pip
+   sudo pip3 install influxdb
+   sudo pip3 install pymongo
+   sudo pip3 install grafanalib
+   sudo pip3 install pandas
+   sudo pip3 install plotly
+   sudo pip3 install scp
+   sudo pip3 install matplotlib
+
+Install these requierements to the remote
+
+.. code-block:: console
+   sudo apt install cpuid
+   sudo apt-get install likwid
+   sudo apt-get install pcp
+   /var/lib/pcp/pmdas/lmsensors$ sudo ./Install
+   sudo apt-get install lm-sensors
+   /var/lib/pcp/pmdas/perfevent$ sudo ./Install
 
 1.7) Run the server
 
 Clone the repository
 
 .. code-block:: console
-   
    git clone https://github.com/sparcityeu/Digital-SuperTwin.git
 
-If you have Dolap account, you can activate it:
+Inside of the SuperTwin directory
 
 .. code-block:: console
-   
-   ssh <your username>@10.36.54.195
-
-Inside of the SuperTwin directory:
-
-.. code-block:: console
-   
    sudo python3 supertwin.py
-
-When it is asked, enter the address as 10.36.54.195 and your credentials.
-
-.. warning::
-
-   Before you run the server, make sure that you start MongoDB, InfluxDB and Grafana.
-
-
 
 2) Manjaro
 ++++++++++
