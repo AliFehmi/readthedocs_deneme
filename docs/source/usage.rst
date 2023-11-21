@@ -130,7 +130,7 @@ You may check if the system is active
    
    sudo systemctl status grafana-server.service
 
-Connect to <localhost:3000> and the Grafana login page will show up. If you are logging in for the first time, your default username and password is **admin**. 
+Connect to `localhost:3000 <http://localhost:3000>`_ and the Grafana login page will show up. If you are logging in for the first time, your default username and password is **admin**. 
 
 .. image:: ../images/login.png
    :width: 450
