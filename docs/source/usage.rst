@@ -179,6 +179,7 @@ Replace the **GRAFANA_TOKEN** code with the code that you copied to your clipboa
    sudo pip3 install plotly
    sudo pip3 install scp
    sudo pip3 install matplotlib
+   sudo apt-get install openssh-server
 
 Install these requierements to the remote
 
@@ -187,8 +188,8 @@ Install these requierements to the remote
    sudo apt install cpuid
    sudo apt-get install likwid
    sudo apt-get install pcp
-   /var/lib/pcp/pmdas/lmsensors$ sudo ./Install
    sudo apt-get install lm-sensors
+   /var/lib/pcp/pmdas/lmsensors$ sudo ./Install
    /var/lib/pcp/pmdas/perfevent$ sudo ./Install
 
 1.7) Run the server
@@ -205,75 +206,3 @@ Inside of the SuperTwin directory
 .. code-block:: console
 
    sudo python3 supertwin.py
-
-2) Manjaro
-++++++++++
-
-3) Mac
-++++++
-3.1) XCode Developer Tools
-
-Install XCode developer tools using the command below
-
-.. code-block:: console
-
-   xcode-select --install
-
-
-3.2) Homebrew
-
-Install homebrew by using the following command
-
-.. code-block:: console
-
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-
-3.3) MongoDB
-
-tap mongodb homebrew tap
-
-.. code-block:: console
-
-   brew tap mongodb/brew
-
-updating homebrew
-
-.. code-block:: console
-   
-   brew update
-
-installing mongodb
-
-.. code-block:: console
-   
-   brew install mongodb-community@6.0
-
-
-
-3.4) InfluxDB
-
-Install influxdb using homebrew
-
-.. code-block:: console
-
-   brew install influxdb
-
-
-3.5) Grafana
-
-Install Grafana using homebrew
-
-.. code-block:: console
-
-   brew install grafana
-
-
-3.6) MongoDB Compass 
-
-Install MongoDB Compass using the link: https://www.mongodb.com/docs/compass/current/install/
-
-
-
-
-   
