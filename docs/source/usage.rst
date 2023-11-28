@@ -197,12 +197,15 @@ In order to prevent KeyErrors we need to be in the following directory and run t
    sudo apt-get install lm-sensors
 
 Then you need to change the directory and run this command
+
 .. code-block::console
+
    /var/lib/pcp/pmdas/perfevent
 The communication method between PMCD and perfevent should be pipe.
 
 If you are receiving FileNotFoundError 'pcp2influxdb' run these command on the SuperTwin directory.
 .. code-block::console
+
    sudo apt-get update -y
    sudo apt-get install -y pcp-export-pcp2influxdb
 
