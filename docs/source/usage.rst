@@ -70,6 +70,15 @@ You may check if the installation was successful by running this command.
 .. code-block:: console
 
    mongod --version
+Start the service
+.. code-block:: console
+
+   sudo systemctl start mongod.service
+
+Check if the service if active
+.. code-block:: console
+
+   sudo systemctl status mongod.service
    
 1.2) MongoDB Compass Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -180,6 +189,22 @@ Replace the **GRAFANA_TOKEN** code with the code that you copied to your clipboa
    sudo pip3 install scp
    sudo pip3 install matplotlib
    sudo apt-get install openssh-server
+
+In order to prevent KeyErrors we need to be in the following directory and run these commands
+.. code-block:: console
+   /var/lib/pcp/pmdas/lmsensors
+   sudo apt-get install sensors
+   sudo apt-get install lm-sensors
+
+Then you need to change the directory and run this command
+.. code-block::console
+   /var/lib/pcp/pmdas/perfevent
+The communication method between PMCD and perfevent should be pipe.
+
+If you are receiving FileNotFoundError 'pcp2influxdb' run these command on the SuperTwin directory.
+.. code-block::console
+   sudo apt-get update -y
+   sudo apt-get install -y pcp-export-pcp2influxdb
 
 Install these requierements to the remote
 
