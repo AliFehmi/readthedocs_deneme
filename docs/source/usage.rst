@@ -193,6 +193,7 @@ Replace the **GRAFANA_TOKEN** code with the code that you copied to your clipboa
 In order to prevent KeyErrors we need to be in the following directory and run these commands
 
 .. code-block:: console
+   
    /var/lib/pcp/pmdas/lmsensors
    sudo apt-get install sensors
    sudo apt-get install lm-sensors
