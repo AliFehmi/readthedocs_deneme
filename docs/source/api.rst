@@ -21,11 +21,12 @@ This function is ideal for use in data visualization to differentiate between va
 
 .. rubric:: Parameters
 
-- ``color_index``: A global variable that keeps track of the current position in the ``color_palette`` list.
-- ``color_palette``: A global list containing the hexadecimal color codes to be cycled through.
+:``color_index``: A global variable that keeps track of the current position in the ``color_palette`` list.
+:``color_palette``: A global list containing the hexadecimal color codes to be cycled through.
 
 .. rubric:: Returns
 
 - **Return Type:** ``string``
 - **Description:** Returns a hexadecimal color code (e.g., ``#4A90E2``). This is the next color in the ``color_palette`` list.
+
 
