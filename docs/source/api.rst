@@ -10,19 +10,18 @@ API
 
 ### Functionality
 
-- The `get_next_color()` function is designed to iterate through a predefined list of color codes, `colors`.
-- Each time the function is called, it returns the next color in the sequence.
-- Once the end of the list is reached, it continues again from the beginning, ensuring a continuous supply of colors.
-- This function is particularly useful in data visualization contexts where different data series need to be distinguished by unique colors.
+- The `get_next_color()` function cycles through a predefined list of color codes, `color_palette`.
+- It returns the next color in the sequence with each call.
+- Upon reaching the end of the color list, it starts over from the beginning, providing an ongoing cycle of colors.
+- Ideal for use in data visualization to differentiate between various data series with distinct colors.
 
 ### Parameters
 
-- The function does not take any external parameters.
-- It relies on a global variable `next_color` which tracks the current index in the `colors` list.
-- The `colors` list is also a global variable, containing the color codes to cycle through.
+- **`color_index`**: A global variable that keeps track of the current position in the `color_palette` list.
+- **`color_palette`**: A global list that contains the color codes (in hexadecimal format) to be cycled through.
 
 ### Returns
 
 - **Return Type:** `string`
-- **Description:** The function returns a string representing the color code in hexadecimal format (e.g., `#FF5733`). This color code corresponds to the next color in the `colors` list.
+- **Description:** Returns a hexadecimal color code (e.g., `#4A90E2`). This is the next color in the `color_palette` list.
 
