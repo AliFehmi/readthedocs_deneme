@@ -10,7 +10,7 @@ API
 
 ### 📋 Functionality
 
-- The `get_next_color()` function cycles through a predefined list of color codes, `color_palette`.
+- The ``get_next_color()`` function cycles through a predefined list of color codes, `color_palette`.
 - Returns the next color in the sequence with each call.
 - Upon reaching the end of the color list, it starts over from the beginning, providing a continuous cycle of colors.
 - Ideal for use in data visualization to differentiate between various data series with distinct colors.
