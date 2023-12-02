@@ -7,10 +7,10 @@ API
    lumache
 
 
-## :arrow_right:`get_next_color()`
+## `get_next_color()`
 
 
-### :page_facing_up:Functionality
+### Functionality
 
 - The ``get_next_color()`` function cycles through a predefined list of color codes, `color_palette`.
 - Returns the next color in the sequence with each call.
@@ -18,14 +18,14 @@ API
 - Ideal for use in data visualization to differentiate between various data series with distinct colors.
 
 
-### :key: Parameters
+### Parameters
 
 
 - `color_index`: A global variable that keeps track of the current position in the `color_palette` list.
 - `color_palette`: A global list containing the hexadecimal color codes to be cycled through.
 
 
-### :outbox_tray: Returns
+### Returns
 
 
 - **Return Type:** `string`
