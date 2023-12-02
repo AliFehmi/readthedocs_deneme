@@ -7,8 +7,7 @@ API
    lumache
 
 
-## `get_next_color()`
-
+<h1>Heading level 1</h1>
 
 ### Functionality
 
