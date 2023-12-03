@@ -6,6 +6,10 @@ API
 
    lumache
 
+generate_plotly_panels_dd_go.py
+-------------------------------
+
+This section documents the functions defined in the ``generate_plotly_panels_dd_go.py`` file.
 
 .. _get_next_color:
 
