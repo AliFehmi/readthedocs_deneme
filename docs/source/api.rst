@@ -325,7 +325,186 @@ Main function orchestrating the creation of a performance analysis dashboard.
 - **Return Type:** `string` or `dict`
 - **Description:** URL or data structure representing the generated Grafana dashboard.
 
+monitoring_dashboard_modular.py
+-------------------------------
+
+This section documents the functions defined in the ``monitoring_dashboard_modular.py`` file.
+
+.. _get_next_id:
+
+get_next_id()
+-------------
+
+.. rubric:: ➤ Functionality
+
+Generates and returns a unique identifier by incrementing a global counter.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `int`
+- **Description:** The next unique identifier.
 
 
+.. _get_params:
+
+get_params(td, measurement)
+---------------------------
+
+.. rubric:: ➤ Functionality
+
+Retrieves parameters for a specific measurement from a digital twin description.
+
+.. rubric:: ⚙ Parameters
+
+- `td`: Digital twin description.
+- `measurement`: The specific measurement to retrieve parameters for.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `list`
+- **Description:** A list of parameters relevant to the specified measurement.
+
+
+.. _get_params_interface_known:
+
+get_params_interface_known(td, interface, measurement)
+------------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+Fetches parameters for a given measurement from a specified interface in the digital twin description.
+
+.. rubric:: ⚙ Parameters
+
+- `td`: Digital twin description.
+- `interface`: The specified interface.
+- `measurement`: The specific measurement to retrieve parameters for.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `dict`
+- **Description:** Parameters for the specified measurement and interface.
+
+
+.. _get_topology:
+
+get_topology(td)
+----------------
+
+.. rubric:: ➤ Functionality
+
+Analyzes and returns the system topology from its digital twin description.
+
+.. rubric:: ⚙ Parameters
+
+- `td`: Digital twin description.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `dict`
+- **Description:** The topology of the system.
+
+
+.. _stat_panel:
+
+stat_panel(SuperTwin, h, w, x, y, color_scheme, metric, empty_dash)
+-------------------------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+Adds a statistical panel to a Grafana dashboard.
+
+.. rubric:: ⚙ Parameters
+
+- `SuperTwin`: Digital twin or similar object.
+- `h`: Height of the panel.
+- `w`: Width of the panel.
+- `x`, `y`: Position coordinates of the panel.
+- `color_scheme`: Color scheme for the panel.
+- `metric`: Specific metric to display.
+- `empty_dash`: Dashboard template to modify.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `dict`
+- **Description:** The updated dashboard template with the new panel.
+
+
+.. _name_panel:
+
+name_panel(SuperTwin, empty_dash)
+---------------------------------
+
+.. rubric:: ➤ Functionality
+
+Adds a panel displaying the name of the digital twin to the dashboard.
+
+.. rubric:: ⚙ Parameters
+
+- `SuperTwin`: Digital twin or similar object.
+- `empty_dash`: Dashboard template to modify.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `dict`
+- **Description:** The updated dashboard template with the new name panel.
+
+
+.. _comprehend:
+
+comprehend(topology, wanted, unit)
+-----------------------------------
+
+.. rubric:: ➤ Functionality
+
+Filters and returns elements from the system topology based on specified criteria.
+
+.. rubric:: ⚙ Parameters
+
+- `topology`: The system topology.
+- `wanted`: List of desired elements.
+- `unit`: The unit or type of elements to filter.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `list`
+- **Description:** Filtered elements from the topology.
+
+
+.. _freq_clock_panel:
+
+freq_clock_panel(SuperTwin, h, w, x, y, threads, empty_dash)
+------------------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+Creates a dashboard panel for displaying frequency clock data for specified threads.
+
+.. rubric:: ⚙ Parameters
+
+- `SuperTwin`: Digital twin or similar object.
+- `h`, `w`, `x`, `y`: Panel dimensions and position.
+- `threads`: List of thread identifiers.
+- `empty_dash`: Dashboard template to modify.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `dict`
+- **Description:** The updated dashboard template with the new panel.
+
+
+.. _load_clock_panel:
+
+load_clock_panel(SuperTwin, h, w, x, y, empty_dash)
+---------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+Adds a load clock panel to the dashboard for system load visualization.
+
+.. rubric:: ⚙ Parameters
+
+- `SuperTwin`: Digital twin or similar object.
+- `h`, `w`, `x`, `y
 
 
