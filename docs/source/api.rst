@@ -508,3 +508,104 @@ Adds a load clock panel to the dashboard for system load visualization.
 - `h`, `w`, `x`, `y
 
 
+
+
+
+monitoring_dashboard_saved.py
+-----------------------------
+
+This section documents the functions defined in the ``monitoring_dashboard_saved.py`` file.
+
+.. _get_next_id:
+
+get_next_id()
+-------------
+
+.. rubric:: ➤ Functionality
+
+Generates and returns a unique identifier by incrementing a global counter.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `int`
+- **Description:** The next unique identifier.
+
+
+.. _get_params:
+
+get_params(td, measurement)
+---------------------------
+
+.. rubric:: ➤ Functionality
+
+Retrieves parameters for a specific measurement from a digital twin description.
+
+.. rubric:: ⚙ Parameters
+
+- `td`: Digital twin description.
+- `measurement`: The specific measurement to retrieve parameters for.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `list`
+- **Description:** A list of parameters relevant to the specified measurement.
+
+
+.. _get_params_interface_known:
+
+get_params_interface_known(td, interface, measurement)
+------------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+Fetches parameters for a given measurement from a specified interface in the digital twin description.
+
+.. rubric:: ⚙ Parameters
+
+- `td`: Digital twin description.
+- `interface`: The specified interface.
+- `measurement`: The specific measurement to retrieve parameters for.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `dict`
+- **Description:** Parameters for the specified measurement and interface.
+
+
+.. _get_topology:
+
+get_topology(td)
+----------------
+
+.. rubric:: ➤ Functionality
+
+Analyzes and returns the system topology from its digital twin description.
+
+.. rubric:: ⚙ Parameters
+
+- `td`: Digital twin description.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `dict`
+- **Description:** The topology of the system.
+
+
+.. _generate_monitoring_dashboard:
+
+generate_monitoring_dashboard(SuperTwin)
+----------------------------------------
+
+.. rubric:: ➤ Functionality
+
+Orchestrates the creation of a monitoring dashboard for a given digital twin.
+
+.. rubric:: ⚙ Parameters
+
+- `SuperTwin`: The digital twin or similar object for which the dashboard is being created.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `string`
+- **Description:** The URL of the generated Grafana dashboard.
+
