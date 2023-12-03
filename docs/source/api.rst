@@ -609,3 +609,102 @@ Orchestrates the creation of a monitoring dashboard for a given digital twin.
 - **Return Type:** `string`
 - **Description:** The URL of the generated Grafana dashboard.
 
+
+
+monitoring_dashboard.py
+-----------------------
+
+This section documents the functions defined in the ``monitoring_dashboard.py`` file.
+
+.. _get_next_id:
+
+get_next_id()
+-------------
+
+.. rubric:: ➤ Functionality
+
+Increments and returns the next unique identifier from a global counter.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `int`
+- **Description:** The next unique identifier in the sequence.
+
+
+.. _get_params:
+
+get_params(td, measurement)
+---------------------------
+
+.. rubric:: ➤ Functionality
+
+Retrieves parameter information for a specified measurement from a digital twin description.
+
+.. rubric:: ⚙ Parameters
+
+- `td`: The digital twin description.
+- `measurement`: The specific measurement for which parameters are required.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `list` of `dict`
+- **Description:** A list of dictionaries containing the alias and parameter names for the specified measurement.
+
+
+.. _get_params_interface_known:
+
+get_params_interface_known(td, interface, measurement)
+------------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+Fetches parameter information for a specified measurement from a known interface within a digital twin description.
+
+.. rubric:: ⚙ Parameters
+
+- `td`: The digital twin description.
+- `interface`: The specific interface to be queried.
+- `measurement`: The measurement for which parameters are needed.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `dict`
+- **Description:** A dictionary containing the alias and parameter name for the specified measurement and interface.
+
+
+.. _get_topology:
+
+get_topology(td)
+----------------
+
+.. rubric:: ➤ Functionality
+
+Analyzes a digital twin description to determine the system topology, specifically mapping sockets to their corresponding cores and threads.
+
+.. rubric:: ⚙ Parameters
+
+- `td`: The digital twin description.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `dict`
+- **Description:** A dictionary representing the system topology.
+
+
+.. _generate_monitoring_dashboard:
+
+generate_monitoring_dashboard(SuperTwin)
+----------------------------------------
+
+.. rubric:: ➤ Functionality
+
+Generates a Grafana monitoring dashboard for the given digital twin, configuring panels and metrics based on the twin's description.
+
+.. rubric:: ⚙ Parameters
+
+- `SuperTwin`: The digital twin object for which the monitoring dashboard is being created.
+
+.. rubric:: ↩ Returns
+
+- **Return Type:** `string`
+- **Description:** The URL of the newly generated Grafana dashboard.
