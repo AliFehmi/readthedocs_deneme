@@ -6,15 +6,15 @@ API
 
    lumache
 
-generate_plotly_panels_dd_go.py
--------------------------------
+1) generate_plotly_panels_dd_go.py
+++++++++++++++++++++++++++++++++++
 
 This section documents the functions defined in the ``generate_plotly_panels_dd_go.py`` file.
 
 .. _get_next_color:
 
-get_next_color()
-----------------
+1.1) get_next_color()
+---------------------
 
 .. rubric:: ➤ Functionality
 
@@ -32,8 +32,8 @@ The ``get_next_color()`` function cycles through a predefined list of color code
 
 .. _round_power_of_2(number):
 
-_round_power_of_2(number)
--------------------------
+1.2) _round_power_of_2(number)
+------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -50,8 +50,8 @@ The ``_round_power_of_2(number)`` function rounds a given number to the nearest 
 
 .. _carm_eq:
 
-carm_eq(ai, bw, fp)
---------------------
+1.3) carm_eq(ai, bw, fp)
+------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -70,8 +70,8 @@ Calculates the minimum of the product of arithmetic intensity (ai) and bandwidth
 
 .. _upload_to_grafana:
 
-upload_to_grafana(json, server, api_key, verify)
-------------------------------------------------
+1.4) upload_to_grafana(json, server, api_key, verify)
+-----------------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -91,8 +91,8 @@ Uploads a JSON-formatted dashboard to a Grafana server using the provided API ke
 
 .. _get_dashboard_json:
 
-get_dashboard_json(dashboard, overwrite, message)
---------------------------------------------------
+1.5) get_dashboard_json(dashboard, overwrite, message)
+------------------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -111,8 +111,8 @@ Generates JSON from a Grafana dashboard object for uploading.
 
 .. _template_dict:
 
-template_dict()
----------------
+1.6) template_dict()
+--------------------
 
 .. rubric:: ➤ Functionality
 
@@ -129,8 +129,8 @@ None.
 
 .. _return_line:
 
-return_line(ai, eq, name, color, dash)
----------------------------------------
+1.7) return_line(ai, eq, name, color, dash)
+-------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -151,8 +151,8 @@ Constructs a dictionary representing a line plot for Plotly.
 
 .. _line_spec:
 
-line_spec(color, dash)
------------------------
+1.8) line_spec(color, dash)
+---------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -170,8 +170,8 @@ Generates a specification for the style of a line in a Plotly graph.
 
 .. _two_templates_one:
 
-two_templates_one(data, layout)
---------------------------------
+1.9) two_templates_one(data, layout)
+------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -189,8 +189,8 @@ Creates a Grafana panel with specific data and layout settings for displaying a 
 
 .. _all_these_lines:
 
-all_these_lines(datalines, data, ai, thread, color)
----------------------------------------------------
+1.10) all_these_lines(datalines, data, ai, thread, color)
+---------------------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -211,8 +211,8 @@ Generates multiple lines/traces for plotting based on performance data.
 
 .. _return_traces:
 
-return_traces(data, ai, thread)
---------------------------------
+1.11) return_traces(data, ai, thread)
+-------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -231,8 +231,8 @@ Generates traces for plotting based on provided data, arithmetic intensity, and 
 
 .. _return_subtraces:
 
-return_subtraces(data, ai, thread, index)
------------------------------------------
+1.12) return_subtraces(data, ai, thread, index)
+-----------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -252,8 +252,8 @@ Generates subtraces for a specific thread and index, based on performance data a
 
 .. _thread_group:
 
-thread_group(fig, thread, color, data, ai, ai_list)
----------------------------------------------------
+1.13) thread_group(fig, thread, color, data, ai, ai_list)
+---------------------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -267,8 +267,8 @@ Adds multiple traces to a Plotly figure for a specific thread count.
 
 .. _thread_groups:
 
-thread_groups(fig, thread, color, data, ai, ai_list)
------------------------------------------------------
+1.14) thread_groups(fig, thread, color, data, ai, ai_list)
+----------------------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -291,8 +291,8 @@ Adds multiple grouped traces to a Plotly figure for different thread counts.
 
 .. _grafana_layout:
 
-grafana_layout(fig)
---------------------
+1.15) grafana_layout(fig)
+-------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -309,8 +309,8 @@ Adjusts the layout of a Plotly figure to fit well within a Grafana dashboard.
 
 .. _main:
 
-main(SuperTwin)
----------------
+1.16) main(SuperTwin)
+---------------------
 
 .. rubric:: ➤ Functionality
 
@@ -325,15 +325,15 @@ Main function orchestrating the creation of a performance analysis dashboard.
 - **Return Type:** `string` or `dict`
 - **Description:** URL or data structure representing the generated Grafana dashboard.
 
-monitoring_dashboard_modular.py
--------------------------------
+2) monitoring_dashboard_modular.py
+++++++++++++++++++++++++++++++++++
 
 This section documents the functions defined in the ``monitoring_dashboard_modular.py`` file.
 
 .. _get_next_id:
 
-get_next_id()
--------------
+2.1) get_next_id()
+------------------
 
 .. rubric:: ➤ Functionality
 
@@ -347,8 +347,8 @@ Generates and returns a unique identifier by incrementing a global counter.
 
 .. _get_params:
 
-get_params(td, measurement)
----------------------------
+2.2) get_params(td, measurement)
+--------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -367,8 +367,8 @@ Retrieves parameters for a specific measurement from a digital twin description.
 
 .. _get_params_interface_known:
 
-get_params_interface_known(td, interface, measurement)
-------------------------------------------------------
+2.3) get_params_interface_known(td, interface, measurement)
+-----------------------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -388,8 +388,8 @@ Fetches parameters for a given measurement from a specified interface in the dig
 
 .. _get_topology:
 
-get_topology(td)
-----------------
+2.4) get_topology(td)
+---------------------
 
 .. rubric:: ➤ Functionality
 
@@ -407,8 +407,8 @@ Analyzes and returns the system topology from its digital twin description.
 
 .. _stat_panel:
 
-stat_panel(SuperTwin, h, w, x, y, color_scheme, metric, empty_dash)
--------------------------------------------------------------------
+2.5) stat_panel(SuperTwin, h, w, x, y, color_scheme, metric, empty_dash)
+------------------------------------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -432,8 +432,8 @@ Adds a statistical panel to a Grafana dashboard.
 
 .. _name_panel:
 
-name_panel(SuperTwin, empty_dash)
----------------------------------
+2.6) name_panel(SuperTwin, empty_dash)
+--------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -452,8 +452,8 @@ Adds a panel displaying the name of the digital twin to the dashboard.
 
 .. _comprehend:
 
-comprehend(topology, wanted, unit)
------------------------------------
+2.7) comprehend(topology, wanted, unit)
+---------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -473,8 +473,8 @@ Filters and returns elements from the system topology based on specified criteri
 
 .. _freq_clock_panel:
 
-freq_clock_panel(SuperTwin, h, w, x, y, threads, empty_dash)
-------------------------------------------------------------
+2.8) freq_clock_panel(SuperTwin, h, w, x, y, threads, empty_dash)
+-----------------------------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -495,8 +495,8 @@ Creates a dashboard panel for displaying frequency clock data for specified thre
 
 .. _load_clock_panel:
 
-load_clock_panel(SuperTwin, h, w, x, y, empty_dash)
----------------------------------------------------
+2.9) load_clock_panel(SuperTwin, h, w, x, y, empty_dash)
+--------------------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -511,15 +511,15 @@ Adds a load clock panel to the dashboard for system load visualization.
 
 
 
-monitoring_dashboard_saved.py
------------------------------
+3) monitoring_dashboard_saved.py
+++++++++++++++++++++++++++++++++
 
 This section documents the functions defined in the ``monitoring_dashboard_saved.py`` file.
 
 .. _get_next_id:
 
-get_next_id()
--------------
+3.1) get_next_id()
+------------------
 
 .. rubric:: ➤ Functionality
 
@@ -533,8 +533,8 @@ Generates and returns a unique identifier by incrementing a global counter.
 
 .. _get_params:
 
-get_params(td, measurement)
----------------------------
+3.2) get_params(td, measurement)
+--------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -553,8 +553,8 @@ Retrieves parameters for a specific measurement from a digital twin description.
 
 .. _get_params_interface_known:
 
-get_params_interface_known(td, interface, measurement)
-------------------------------------------------------
+3.3) get_params_interface_known(td, interface, measurement)
+-----------------------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -574,8 +574,8 @@ Fetches parameters for a given measurement from a specified interface in the dig
 
 .. _get_topology:
 
-get_topology(td)
-----------------
+3.4) get_topology(td)
+---------------------
 
 .. rubric:: ➤ Functionality
 
@@ -593,8 +593,8 @@ Analyzes and returns the system topology from its digital twin description.
 
 .. _generate_monitoring_dashboard:
 
-generate_monitoring_dashboard(SuperTwin)
-----------------------------------------
+3.5) generate_monitoring_dashboard(SuperTwin)
+---------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -611,15 +611,15 @@ Orchestrates the creation of a monitoring dashboard for a given digital twin.
 
 
 
-monitoring_dashboard.py
------------------------
+4) monitoring_dashboard.py
+++++++++++++++++++++++++++
 
 This section documents the functions defined in the ``monitoring_dashboard.py`` file.
 
 .. _get_next_id:
 
-get_next_id()
--------------
+4.1) get_next_id()
+------------------
 
 .. rubric:: ➤ Functionality
 
@@ -633,8 +633,8 @@ Increments and returns the next unique identifier from a global counter.
 
 .. _get_params:
 
-get_params(td, measurement)
----------------------------
+4.2) get_params(td, measurement)
+--------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -653,8 +653,8 @@ Retrieves parameter information for a specified measurement from a digital twin 
 
 .. _get_params_interface_known:
 
-get_params_interface_known(td, interface, measurement)
-------------------------------------------------------
+4.3) get_params_interface_known(td, interface, measurement)
+-----------------------------------------------------------
 
 .. rubric:: ➤ Functionality
 
@@ -674,8 +674,8 @@ Fetches parameter information for a specified measurement from a known interface
 
 .. _get_topology:
 
-get_topology(td)
-----------------
+4.4) get_topology(td)
+---------------------
 
 .. rubric:: ➤ Functionality
 
@@ -693,8 +693,8 @@ Analyzes a digital twin description to determine the system topology, specifical
 
 .. _generate_monitoring_dashboard:
 
-generate_monitoring_dashboard(SuperTwin)
-----------------------------------------
+4.5) generate_monitoring_dashboard(SuperTwin)
+---------------------------------------------
 
 .. rubric:: ➤ Functionality
 
