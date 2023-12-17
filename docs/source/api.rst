@@ -708,3 +708,1400 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 
 - **Return Type:** `string`
 - **Description:** The URL of the newly generated Grafana dashboard.
+
+
+5) monitoring_panels.py
++++++++++++++++++++++++
+
+.. _stat_panel:
+
+5.1) stat_panel(datasource, _id, h, w, x, y, color_scheme, title)
+------------------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Creates a configuration for a Grafana statistic panel.
+
+.. rubric:: ⚙ Parameters
+
+  - `datasource`: The Grafana datasource.
+  - `_id`: Unique identifier for the panel.
+  - `h`: Height of the panel.
+  - `w`: Width of the panel.
+  - `x`: X position of the panel.
+  - `y`: Y position of the panel.
+  - `color_scheme`: Color scheme for the panel.
+  - `title`: Title of the panel.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary representing the configuration for a Grafana statistic panel.
+
+.. _stat_query:
+
+5.2) stat_query(datasource, alias, measurement, param)
+-------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Creates a query configuration for a Grafana statistic panel.
+
+.. rubric:: ⚙ Parameters
+
+  - `datasource`: The Grafana datasource.
+  - `alias`: Alias for the query.
+  - `measurement`: The measurement to query.
+  - `param`: The parameter to query.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary representing the query configuration for a Grafana statistic panel.
+
+.. _name_panel_html:
+
+5.3) name_panel_html(datasource, _id, hostname)
+------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Creates a HTML panel for displaying a hostname in Grafana.
+
+.. rubric:: ⚙ Parameters
+
+  - `datasource`: The Grafana datasource.
+  - `_id`: Unique identifier for the panel.
+  - `hostname`: The hostname to display.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary representing the configuration for a text panel in Grafana.
+
+.. _name_panel:
+
+5.4) name_panel(datasource, _id, hostname)
+-------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Creates a statistic panel for displaying a hostname in Grafana.
+
+.. rubric:: ⚙ Parameters
+
+  - `datasource`: The Grafana datasource.
+  - `_id`: Unique identifier for the panel.
+  - `hostname`: The hostname to display.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary representing the configuration for a statistic panel in Grafana.
+
+.. _clock_panel:
+
+5.5) clock_panel(datasource, _id, h, w, x, y, color_scheme, title)
+------------------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Creates a heatmap panel for displaying time-based data in Grafana.
+
+.. rubric:: ⚙ Parameters
+
+  - `datasource`: The Grafana datasource.
+  - `_id`: Unique identifier for the panel.
+  - `h`: Height of the panel.
+  - `w`: Width of the panel.
+  - `x`: X position of the panel.
+  - `y`: Y position of the panel.
+  - `color_scheme`: Color scheme for the panel.
+  - `title`: Title of the panel.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary representing the configuration for a heatmap panel in Grafana.
+
+.. _clock_query:
+
+5.6) clock_query(datasource, alias, measurement, param)
+-------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Creates a query for a heatmap panel in Grafana.
+
+.. rubric:: ⚙ Parameters
+
+  - `datasource`: The Grafana datasource.
+  - `alias`: Alias for the query.
+  - `measurement`: The measurement to query.
+  - `param`: The parameter to query.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary representing the query for a heatmap panel in Grafana.
+
+.. _small_single_timeseries:
+
+.. _small_single_timeseries:
+
+5.7) small_single_timeseries(datasource, _id, h, w, x, y, title)
+-----------------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Creates a small single timeseries panel for Grafana.
+
+.. rubric:: ⚙ Parameters
+
+  - `datasource`: The Grafana datasource.
+  - `_id`: Unique identifier for the panel.
+  - `h`: Height of the panel.
+  - `w`: Width of the panel.
+  - `x`: X position of the panel.
+  - `y`: Y position of the panel.
+  - `title`: Title of the panel.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary representing the configuration for a timeseries panel in Grafana.
+
+.. _small_single_query:
+
+5.8) small_single_query(datasource, alias, measurement)
+---------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Creates a query for a small single timeseries panel in Grafana.
+
+.. rubric:: ⚙ Parameters
+
+  - `datasource`: The Grafana datasource.
+  - `alias`: Alias for the query.
+  - `measurement`: The measurement to query.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary representing the query for a small single timeseries panel in Grafana.
+
+.. _all_network_panel:
+
+5.9) all_network_panel(datasource, _id, h, w, x, y)
+----------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Creates a network panel for displaying network data in Grafana.
+
+.. rubric:: ⚙ Parameters
+
+  - `datasource`: The Grafana datasource.
+  - `_id`: Unique identifier for the panel.
+  - `h`: Height of the panel.
+  - `w`: Width of the panel.
+  - `x`: X position of the panel.
+  - `y`: Y position of the panel.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary representing the configuration for a network panel in Grafana.
+
+.. _disk_panel:
+
+5.10) disk_panel(datasource, _id, h, w, x, y, title)
+----------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Creates a disk panel for displaying disk data in Grafana.
+
+.. rubric:: ⚙ Parameters
+
+  - `datasource`: The Grafana datasource.
+  - `_id`: Unique identifier for the panel.
+  - `h`: Height of the panel.
+  - `w`: Width of the panel.
+  - `x`: X position of the panel.
+  - `y`: Y position of the panel.
+  - `title`: Title of the panel.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary representing the configuration for a disk panel in Grafana.
+
+.. _general_panel:
+
+5.11) general_panel(datasource, _id, h, w, x, y, title)
+-------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Creates a general panel for displaying various types of data in Grafana.
+
+.. rubric:: ⚙ Parameters
+
+  - `datasource`: The Grafana datasource.
+  - `_id`: Unique identifier for the panel.
+  - `h`: Height of the panel.
+  - `w`: Width of the panel.
+  - `x`: X position of the panel.
+  - `y`: Y position of the panel.
+  - `title`: Title of the panel.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary representing the configuration for a general panel in Grafana.
+
+.. _name_panel_last:
+
+5.12) name_panel_last(datasource, _id, hostname)
+------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Creates a name panel for displaying a hostname as the last panel in Grafana.
+
+.. rubric:: ⚙ Parameters
+
+  - `datasource`: The Grafana datasource.
+  - `_id`: Unique identifier for the panel.
+  - `hostname`: The hostname to display.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary representing the configuration for a name panel in Grafana.
+
+6) observation_standard.py
+++++++++++++++++++++++++++
+
+Functions
+---------
+
+.. _next_y:
+
+6.1) next_y()
+--------
+
+.. rubric:: ➤ Functionality
+
+  Calculates the next y-coordinate for a Grafana panel.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `int`
+  - **Description:** The next y-coordinate value.
+
+.. _current_y:
+
+6.2) current_y()
+----------
+
+.. rubric:: ➤ Functionality
+
+  Retrieves the current y-coordinate for a Grafana panel.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `int`
+  - **Description:** The current y-coordinate value.
+
+.. _upload_to_grafana:
+
+6.3) upload_to_grafana(json, server, api_key, verify=True)
+-----------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Uploads a Grafana dashboard configuration to a Grafana server.
+
+.. rubric:: ⚙ Parameters
+
+  - `json`: Dashboard configuration in JSON format.
+  - `server`: The URL of the Grafana server.
+  - `api_key`: API key for authentication.
+  - `verify`: Flag to verify the server's SSL certificate.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** Response from the Grafana server.
+
+.. _get_dashboard_json:
+
+6.4) get_dashboard_json(dashboard, overwrite, message="Updated by grafanalib")
+-------------------------------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Generates a JSON representation of a Grafana dashboard.
+
+.. rubric:: ⚙ Parameters
+
+  - `dashboard`: The Grafana dashboard object.
+  - `overwrite`: Flag indicating whether to overwrite an existing dashboard.
+  - `message`: A message to include with the dashboard configuration.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `str`
+  - **Description:** JSON string of the dashboard configuration.
+
+.. _template_dict:
+
+6.5) template_dict(observation_id)
+------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Creates a template dictionary for a Grafana dashboard.
+
+.. rubric:: ⚙ Parameters
+
+  - `observation_id`: Identifier for the observation.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A template dictionary for a Grafana dashboard.
+
+.. _find_my_socket:
+
+6.6) find_my_socket(socket_threads, thread)
+--------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Finds the socket associated with a given thread.
+
+.. rubric:: ⚙ Parameters
+
+  - `socket_threads`: A dictionary of sockets and their threads.
+  - `thread`: The thread to find the socket for.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `str`
+  - **Description:** The socket associated with the specified thread.
+
+.. _find_from_likwid_pin:
+
+6.7) find_from_likwid_pin(SuperTwin, affinity)
+----------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Resolves thread affinity from LIKWID pinning.
+
+.. rubric:: ⚙ Parameters
+
+  - `SuperTwin`: The SuperTwin object.
+  - `affinity`: The affinity string from LIKWID.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary of sockets and their threads based on LIKWID pinning.
+
+.. _find_from_likwid_pin_old:
+
+6.8) find_from_likwid_pin_old(affinity)
+----------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Resolves thread affinity from an older LIKWID pinning format.
+
+.. rubric:: ⚙ Parameters
+
+  - `affinity`: The affinity string from LIKWID.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary of sockets and their threads based on the older LIKWID pinning format.
+
+.. _involved_resolve:
+
+6.9) involved_resolve(threads)
+-------------------------
+
+.. rubric:: ➤ Functionality
+
+  Resolves involved threads into a structured format.
+
+.. rubric:: ⚙ Parameters
+
+  - `threads`: A list of involved threads.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `dict`
+  - **Description:** A dictionary of sockets and their threads.
+
+.. _get_field_and_metric:
+
+6.10) get_field_and_metric(SuperTwin, involved, pmu_metric)
+-----------------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Retrieves field and metric information based on PMU metrics.
+
+.. rubric:: ⚙ Parameters
+
+  - `SuperTwin`: The SuperTwin object.
+  - `involved`: A dictionary of involved sockets and threads.
+  - `pmu_metric`: The PMU metric to retrieve information for.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `tuple`
+  - **Description:** A tuple containing the field and metric name.
+
+.. _main:
+
+6.11) main(SuperTwin, observation)
+----------------------------
+
+.. rubric:: ➤ Functionality
+
+  Main function to generate a Grafana dashboard for a given observation.
+
+.. rubric:: ⚙ Parameters
+
+  - `SuperTwin`: The SuperTwin object.
+  - `observation`: The observation data.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `str`
+  - **Description:** The URL of the generated Grafana dashboard.
+
+.. _multinode:
+
+6.12) multinode(st1, o1, st2, o2, st3, o3, st4, o4)
+---------------------------------------------
+
+.. rubric:: ➤ Functionality
+
+  Generates a Grafana dashboard for multi-node observations.
+
+.. rubric:: ⚙ Parameters
+
+  - `st1`, `st2`, `st3`, `st4`: SuperTwin objects for each node.
+  - `o1`, `o2`, `o3`, `o4`: Observation data for each node.
+
+.. rubric:: ↩ Returns
+
+  - **Return Type:** `str`
+  - **Description:** The URL of the generated multi-node Grafana dashboard.
+
+
+7) panels_multinode.py
+++++++++++++++++++++++
+
+This section documents the functions defined in the ``panels_multinode.py`` file.
+
+.. _ret_ts_panel:
+
+7.1) ret_ts_panel(y, title)
+-----------------------
+
+This function returns a time series panel configuration for Grafana.
+
+- **Parameters**:
+
+    - **y** (*int*): The y-coordinate for the panel's position.
+    - **title** (*str*): The title of the panel.
+
+- **Returns**:
+
+    - A dictionary representing the time series panel configuration.
+
+
+.. _ret_query:
+
+7.2) ret_query(alias, measurement, field, tag, datasource)
+-----------------------------------------------------
+
+This function generates a query configuration for Grafana panels.
+
+- **Parameters**:
+
+    - **alias** (*str*): The alias for the query.
+    - **measurement** (*str*): The measurement to be queried.
+    - **field** (*str*): The field to be selected in the query.
+    - **tag** (*str*): The tag to filter the query.
+    - **datasource** (*str*): The UID of the datasource.
+
+- **Returns**:
+
+    - A dictionary representing the query configuration.
+
+
+.. _ret_gauge_panel:
+
+7.3) ret_gauge_panel(title, y)
+--------------------------
+
+This function returns a gauge panel configuration for Grafana.
+
+- **Parameters**:
+
+    - **title** (*str*): The title of the gauge panel.
+    - **y** (*int*): The y-coordinate for the panel's position.
+
+- **Returns**:
+
+    - A dictionary representing the gauge panel configuration.
+
+8) panels_standard.py
+------------------
+
+This section documents the functions defined in the ``panels_standard.py`` file.
+
+.. _ret_ts_panel:
+
+8.1) ret_ts_panel(datasource, y, title)
+-----------------------------------
+
+This function returns a time series panel configuration for Grafana.
+
+- **Parameters**:
+
+    - **datasource** (*str*): The datasource UID for the panel.
+    - **y** (*int*): The y-coordinate for the panel's position.
+    - **title** (*str*): The title of the panel.
+
+- **Returns**:
+
+    - A dictionary representing the time series panel configuration.
+
+
+.. _ret_query:
+
+8.2) ret_query(alias, measurement, field, tag)
+-----------------------------------------
+
+This function generates a query configuration for Grafana panels.
+
+- **Parameters**:
+
+    - **alias** (*str*): The alias for the query.
+    - **measurement** (*str*): The measurement to be queried.
+    - **field** (*str*): The field to be selected in the query.
+    - **tag** (*str*): The tag to filter the query.
+
+- **Returns**:
+
+    - A dictionary representing the query configuration.
+
+
+.. _ret_gauge_panel:
+
+8.3) ret_gauge_panel(datasource, title, y)
+--------------------------------------
+
+This function returns a gauge panel configuration for Grafana.
+
+- **Parameters**:
+
+    - **datasource** (*str*): The datasource UID for the panel.
+    - **title** (*str*): The title of the gauge panel.
+    - **y** (*int*): The y-coordinate for the panel's position.
+
+- **Returns**:
+
+    - A dictionary representing the gauge panel configuration.
+
+
+.. _grafana_layout_2:
+
+8.4) grafana_layout_2(fig)
+---------------------
+
+This function updates the layout configuration for a Plotly figure to match a specific Grafana style.
+
+- **Parameters**:
+
+    - **fig** (*plotly.graph_objs.Figure*): The figure to update the layout for.
+
+- **Returns**:
+
+    - The updated Plotly figure with the new layout configuration.
+
+
+.. _two_templates_two:
+
+8.5) two_templates_two(data, layout)
+--------------------------------
+
+This function creates a Grafana panel template for displaying Plotly figures.
+
+- **Parameters**:
+
+    - **data** (*list*): The data for the Plotly figure.
+    - **layout** (*dict*): The layout configuration for the Plotly figure.
+
+- **Returns**:
+
+    - A dictionary representing the Grafana panel template.
+
+9) roofline_dashboard_back.py
++++++++++++++++++++++++++++++
+
+.. _next_panel_id:
+
+9.1) next_panel_id
+-------------
+
+Increments and returns the global variable `glob_panel_id`, used for tracking Grafana panel IDs.
+
+- **Returns**:
+
+    - Integer: The next panel ID in the sequence.
+
+.. _get_json_static_panel:
+
+9.2) get_json_static_panel(h, w, x, y, title, emp, target)
+-----------------------------------------------------
+
+Creates a JSON structure for a static panel in Grafana.
+
+- **Parameters**:
+
+    - **h** (*int*): Panel height.
+    - **w** (*int*): Panel width.
+    - **x** (*int*): X-coordinate in the dashboard grid.
+    - **y** (*int*): Y-coordinate in the dashboard grid.
+    - **title** (*str*): Panel title.
+    - **emp** (*str*): Color mode ("value" or "background").
+    - **target** (*str*): Target data field.
+
+- **Returns**:
+
+    - Dictionary: JSON object for the static panel.
+
+.. _get_stream_bw:
+
+9.3) get_stream_bw(twin)
+-------------------
+
+Calculates the maximum bandwidth from STREAM benchmark results.
+
+- **Parameters**:
+
+    - **twin** (*dict*): Data structure containing twin information.
+
+- **Returns**:
+
+    - Float: Maximum bandwidth in GB/s.
+
+.. _peak_theoretical_flop:
+
+9.4) peak_theoretical_flop(no_procs, core_per_proc, clock_speed, no_fma_units, max_vector_size)
+------------------------------------------------------------------------------------------
+
+Calculates the peak theoretical floating-point operations per second.
+
+- **Parameters**:
+
+    - **no_procs** (*int*): Number of processors.
+    - **core_per_proc** (*int*): Cores per processor.
+    - **clock_speed** (*float*): Processor clock speed in GHz.
+    - **no_fma_units** (*int*): Number of FMA units.
+    - **max_vector_size** (*int*): Maximum vector size.
+
+- **Returns**:
+
+    - Float: Peak GFLOP/s.
+
+.. _get_ridge_point:
+
+9.5) get_ridge_point(bw, flop)
+-------------------------
+
+Calculates the ridge point of a roofline model.
+
+- **Parameters**:
+
+    - **bw** (*float*): Bandwidth.
+    - **flop** (*float*): Floating-point operations per second.
+
+- **Returns**:
+
+    - Float: Ridge point value.
+
+.. _get_roof_values:
+
+9.6) get_roof_values(max_bw, peak_g_flop, ridge_point)
+-------------------------------------------------
+
+Determines roofline model values.
+
+- **Parameters**:
+
+    - **max_bw** (*float*): Maximum bandwidth.
+    - **peak_g_flop** (*float*): Peak GFLOP/s.
+    - **ridge_point** (*float*): Ridge point.
+
+- **Returns**:
+
+    - Tuple: Lists of Arithmetic Intensities (AIs) and corresponding performance values (Y).
+
+.. _get_flops_values:
+
+9.7) get_flops_values(twin)
+-----------------------
+
+Extracts FLOPS values from a given twin data structure.
+
+- **Parameters**:
+
+    - **twin** (*dict*): Twin data structure.
+
+- **Returns**:
+
+    - Tuple: FLOPS values for different operations.
+
+.. _get_dram_roofline_panel:
+
+9.8) get_dram_roofline_panel(SuperTwin)
+----------------------------------
+
+Creates a DRAM roofline panel for a Grafana dashboard.
+
+- **Parameters**:
+
+    - **SuperTwin**: Object containing twin and system information.
+
+- **Returns**:
+
+    - Dictionary: Grafana panel configuration for the DRAM roofline.
+
+.. _get_stream_results:
+
+9.9) get_stream_results(twin)
+-------------------------
+
+Extracts STREAM benchmark results from the twin data.
+
+- **Parameters**:
+
+    - **twin** (*dict*): Twin data structure.
+
+- **Returns**:
+
+    - Tuple: Results of the STREAM benchmark and the list of thread counts.
+
+.. _get_stream_scaling_panel:
+
+9.10) get_stream_scaling_panel(SuperTwin)
+-----------------------------------
+
+Generates a Grafana panel for STREAM benchmark multicore scaling.
+
+- **Parameters**:
+
+    - **SuperTwin**: Object containing twin and system information.
+
+- **Returns**:
+
+    - Dictionary: Grafana panel configuration for STREAM scaling.
+
+.. _get_hpcg_results:
+
+9.11) get_hpcg_results(twin)
+-----------------------
+
+Extracts HPCG benchmark results from the twin data.
+
+- **Parameters**:
+
+    - **twin** (*dict*): Twin data structure.
+
+- **Returns**:
+
+    - Tuple: Results of the HPCG benchmark and the list of thread counts.
+
+.. _get_hpcg_scaling_panel:
+
+9.12) get_hpcg_scaling_panel(SuperTwin)
+---------------------------------
+
+Creates a Grafana panel for HPCG benchmark multicore scaling.
+
+- **Parameters**:
+
+    - **SuperTwin**: Object containing twin and system information.
+
+- **Returns**:
+
+    - Dictionary: Grafana panel configuration for HPCG scaling.
+
+.. _generate_roofline_dashboard:
+
+9.13) generate_roofline_dashboard(SuperTwin)
+--------------------------------------
+
+Generates a complete Grafana dashboard for roofline analysis.
+
+- **Parameters**:
+
+    - **SuperTwin**: Object containing twin and system information.
+
+- **Returns**:
+
+    - String: URL of the generated Grafana dashboard.
+
+10) roofline_dashboard_panels.py
+
+.. _two_templates_one:
+
+10.1) two_templates_one(data, layout, datasource)
+-------------------------------------------
+
+Creates a Grafana panel template for displaying a Plotly figure related to the Cache Aware Roofline Model.
+
+- **Parameters**:
+
+    - **data** (*list*): The data for the Plotly figure.
+    - **layout** (*dict*): The layout configuration for the Plotly figure.
+    - **datasource** (*str*): The UID for the Grafana datasource.
+
+- **Returns**:
+
+    - Dictionary: JSON object for the Grafana panel.
+
+.. _two_templates_two:
+
+10.2) two_templates_two(data, layout, datasource)
+-------------------------------------------
+
+Creates a Grafana panel template for displaying system hardware information using a Plotly figure.
+
+- **Parameters**:
+
+    - **data** (*list*): The data for the Plotly figure.
+    - **layout** (*dict*): The layout configuration for the Plotly figure.
+    - **datasource** (*str*): The UID for the Grafana datasource.
+
+- **Returns**:
+
+    - Dictionary: JSON object for the Grafana panel.
+
+.. _two_templates_three:
+
+10.3) two_templates_three(data, layout, h, w, x, y, datasource, title, id)
+--------------------------------------------------------------------
+
+Creates a customizable Grafana panel template for displaying Plotly figures.
+
+- **Parameters**:
+
+    - **data** (*list*): The data for the Plotly figure.
+    - **layout** (*dict*): The layout configuration for the Plotly figure.
+    - **h** (*int*): Height of the panel.
+    - **w** (*int*): Width of the panel.
+    - **x** (*int*): X-coordinate in the dashboard grid.
+    - **y** (*int*): Y-coordinate in the dashboard grid.
+    - **datasource** (*str*): The UID for the Grafana datasource.
+    - **title** (*str*): Title of the panel.
+    - **id** (*int*): Panel ID.
+
+- **Returns**:
+
+    - Dictionary: JSON object for the Grafana panel.
+
+.. _grafana_layout:
+
+10.4) grafana_layout(fig)
+--------------------
+
+Updates the layout configuration of a Plotly figure for a Grafana dashboard with specific aesthetic preferences.
+
+- **Parameters**:
+
+    - **fig** (*plotly.graph_objs.Figure*): The figure to update the layout for.
+
+- **Returns**:
+
+    - The updated Plotly figure with the new layout configuration.
+
+.. _grafana_layout_2:
+
+10.5) grafana_layout_2(fig)
+---------------------
+
+Updates the layout configuration of a Plotly figure for a Grafana dashboard, tailored for a specific visual style.
+
+- **Parameters**:
+
+    - **fig** (*plotly.graph_objs.Figure*): The figure to update the layout for.
+
+- **Returns**:
+
+    - The updated Plotly figure with the new layout configuration.
+
+.. _grafana_layout_3:
+
+10.6) grafana_layout_3(fig, xtickvals, ytitle)
+----------------------------------------
+
+Customizes the layout of a Plotly figure for a Grafana dashboard with specific axis configurations.
+
+- **Parameters**:
+
+    - **fig** (*plotly.graph_objs.Figure*): The figure to update the layout for.
+    - **xtickvals** (*list*): Values for the x-axis ticks.
+    - **ytitle** (*str*): Title for the y-axis.
+
+- **Returns**:
+
+    - The updated Plotly figure with the new layout configuration.
+
+11) roofline_dashboard.py
+
+
+.. _generate_roofline_dashboard:
+
+11.1) generate_roofline_dashboard(SuperTwin)
+--------------------------------------
+
+Generates a complete Grafana dashboard for a given SuperTwin instance with roofline and benchmark panels.
+
+- **Parameters**:
+
+    - **SuperTwin**: The SuperTwin instance containing configuration and data sources.
+
+- **Returns**:
+
+    - The URL of the generated Grafana dashboard.
+
+.. _generate_visibility_sequence:
+
+11.2) generate_visibility_sequence(vis_dict)
+--------------------------------------
+
+Creates a visibility sequence for Grafana panels based on a given visibility dictionary.
+
+- **Parameters**:
+
+    - **vis_dict** (*dict*): A dictionary specifying visibility for each panel.
+
+- **Returns**:
+
+    - List: A list representing visibility for each panel.
+
+.. _generate_visibility_sequence_from_list:
+
+11.3) generate_visibility_sequence_from_list(vis_list)
+------------------------------------------------
+
+Generates a visibility sequence for Grafana panels from a given list of visibilities.
+
+- **Parameters**:
+
+    - **vis_list** (*list*): A list representing visibility for each panel.
+
+- **Returns**:
+
+    - List: A list representing visibility for each panel.
+
+.. _get_next_color:
+
+11.4) get_next_color()
+----------------
+
+Fetches the next color in the predefined color sequence for panel visualization.
+
+- **Returns**:
+
+    - String: The next color in the sequence.
+
+.. _round_power_of_2:
+
+round_power_of_2(number)
+------------------------
+
+Rounds a given number to the nearest power of two.
+
+- **Parameters**:
+
+    - **number** (*int*): The number to round.
+
+- **Returns**:
+
+    - Int: The nearest power of two to the given number.
+
+.. _carm_eq:
+
+11.5) carm_eq(ai, bw, fp)
+-------------------
+
+Calculates the minimum of AI times bandwidth and FP for the CARM benchmark.
+
+- **Parameters**:
+
+    - **ai** (*float*): Arithmetic intensity.
+    - **bw** (*float*): Bandwidth.
+    - **fp** (*float*): Floating point operations per second.
+
+- **Returns**:
+
+    - Float: The calculated minimum value for CARM.
+
+.. _next_y:
+
+11.6) next_y()
+--------
+
+Generates the next y-coordinate for placing panels in the Grafana dashboard.
+
+- **Returns**:
+
+    - Int: The next y-coordinate for a panel.
+
+.. _next_panel_id:
+
+11.7) next_panel_id()
+---------------
+
+Generates the next unique panel ID for Grafana dashboard panels.
+
+- **Returns**:
+
+    - Int: The next unique panel ID.
+
+.. _next_dash_id:
+
+11.8) next_dash_id()
+--------------
+
+Generates the next unique dashboard ID for Grafana dashboards.
+
+- **Returns**:
+
+    - Int: The next unique dashboard ID.
+
+.. _return_line:
+
+11.9) return_line(ai, eq, name, color, dash)
+--------------------------------------
+
+Creates a line configuration for Plotly figures in Grafana panels.
+
+- **Parameters**:
+
+    - **ai** (*list*): List of arithmetic intensities.
+    - **eq** (*list*): List of corresponding values.
+    - **name** (*str*): Name of the line.
+    - **color** (*str*): Color of the line.
+    - **dash** (*str*): Dash style of the line.
+
+- **Returns**:
+
+    - Dict: A dictionary representing the line configuration.
+
+.. _line_spec:
+
+11.10) line_spec(color, dash)
+----------------------
+
+Specifies the style of a line for Plotly figures in Grafana panels.
+
+- **Parameters**:
+
+    - **color** (*str*): Color of the line.
+    - **dash** (*str*): Dash style of the line.
+
+- **Returns**:
+
+    - Dict: A dictionary representing the line style.
+
+.. _return_subtraces:
+
+return_subtraces(data, ai, thread, index)
+----------------------------------------
+
+11.11) Generates sub-traces for Plotly figures in Grafana panels.
+
+- **Parameters**:
+
+    - **data** (*dict*): Data used for generating the sub-traces.
+    - **ai** (*list*): Arithmetic intensities.
+    - **thread** (*str*): Thread count.
+    - **index** (*int*): Index for data selection.
+
+- **Returns**:
+
+    - List: A list containing sub-trace data and configurations.
+
+.. _thread_groups:
+
+11.12) thread_groups(fig, thread, color, data, ai, ai_list)
+----------------------------------------------------
+
+Groups threads for Plotly figures in Grafana panels based on the given configuration.
+
+- **Parameters**:
+
+    - **fig** (*plotly.graph_objs.Figure*): The figure to update.
+    - **thread** (*str*): Thread count.
+    - **color** (*str*): Color for the group.
+    - **data** (*dict*): Data used for the grouping.
+    - **ai** (*list*): Arithmetic intensities.
+    - **ai_list** (*list*): List of arithmetic intensities.
+
+- **Returns**:
+
+    - The updated Plotly figure with grouped threads.
+
+.. _fill_carm_res_dict:
+
+11.13) fill_carm_res_dict(carm_res, result)
+------------------------------------
+
+Fills the CARM results dictionary with data from benchmark results.
+
+- **Parameters**:
+
+    - **carm_res** (*dict*): Dictionary to fill with CARM results.
+    - **result** (*dict*): Benchmark result data.
+
+- **Returns**:
+
+    - Dict: The updated CARM results dictionary.
+
+.. _get_carm_res_from_dt:
+
+11.14) get_carm_res_from_dt(SuperTwin)
+-------------------------------
+
+Retrieves CARM results from a given SuperTwin instance.
+
+- **Parameters**:
+
+    - **SuperTwin**: The SuperTwin instance containing benchmark data.
+
+- **Returns**:
+
+    - Dict: A dictionary of CARM results.
+
+.. _get_hpcg_marks:
+
+11.15) get_hpcg_marks(hpcg_res)
+------------------------
+
+Generates HPCG benchmark marks from given results.
+
+- **Parameters**:
+
+    - **hpcg_res** (*dict*): HPCG benchmark results.
+
+- **Returns**:
+
+    - Dict: A dictionary of HPCG benchmark marks.
+
+.. _generate_carm_roofline:
+
+11.16) generate_carm_roofline(SuperTwin)
+---------------------------------
+
+Generates a CARM roofline Plotly figure for a given SuperTwin instance.
+
+- **Parameters**:
+
+    - **SuperTwin**: The SuperTwin instance containing configuration and data sources.
+
+- **Returns**:
+
+    - plotly.graph_objs.Figure: The generated CARM roofline figure.
+
+.. _get_indicator_fields:
+
+11.17) get_indicator_fields(_string)
+-----------------------------
+
+Extracts value, prefix, and suffix from a given string.
+
+- **Parameters**:
+
+    - **_string** (*str*): The string to parse.
+
+- **Returns**:
+
+    - Tuple: A tuple containing the extracted value, prefix, and suffix.
+
+.. _get_indicator_fields_vector:
+
+11.18) get_indicator_fields_vector(_array)
+-----------------------------------
+
+Extracts value, prefix, and suffix from a given array of strings.
+
+- **Parameters**:
+
+    - **_array** (*list*): The array of strings to parse.
+
+- **Returns**:
+
+    - Tuple: A tuple containing the extracted value, prefix, and suffix.
+
+.. _generate_info_panel:
+
+11.19) generate_info_panel(SuperTwin)
+------------------------------
+
+Generates an information panel as a Plotly figure for a given SuperTwin instance.
+
+- **Parameters**:
+
+    - **SuperTwin**: The SuperTwin instance containing configuration and data sources.
+
+- **Returns**:
+
+    - plotly.graph_objs.Figure: The generated information panel figure.
+
+.. _get_stream_bench_data:
+
+11.20) get_stream_bench_data(td)
+-------------------------
+
+Retrieves STREAM benchmark data from twin description.
+
+- **Parameters**:
+
+    - **td** (*dict*): Twin description containing benchmark data.
+
+- **Returns**:
+
+    - Dict: A dictionary of STREAM benchmark results.
+
+.. _generate_x:
+
+11.21) generate_x(stream_res)
+----------------------
+
+Generates x-axis data for a STREAM benchmark graph.
+
+- **Parameters**:
+
+    - **stream_res** (*dict*): STREAM benchmark results.
+
+- **Returns**:
+
+    - List: A list of x-axis data points.
+
+.. _generate_y:
+
+11.22) generate_y(stream_res_key)
+--------------------------
+
+Generates y-axis data for a STREAM benchmark graph based on a specific key.
+
+- **Parameters**:
+
+    - **stream_res_key** (*list*): Specific key in the STREAM benchmark results.
+
+- **Returns**:
+
+    - List: A list of y-axis data points.
+
+.. _generate_stream_panel:
+
+11.23) generate_stream_panel(SuperTwin)
+--------------------------------
+
+Generates a STREAM benchmark panel as a Plotly figure for a given SuperTwin instance.
+
+- **Parameters**:
+
+    - **SuperTwin**: The SuperTwin instance containing configuration and data sources.
+
+- **Returns**:
+
+    - plotly.graph_objs.Figure: The generated STREAM benchmark panel figure.
+
+.. _get_hpcg_bench_data:
+
+11.24) get_hpcg_bench_data(td)
+-----------------------
+
+Retrieves HPCG benchmark data from twin description.
+
+- **Parameters**:
+
+    - **td** (*dict*): Twin description containing benchmark data.
+
+- **Returns**:
+
+    - Dict: A dictionary of HPCG benchmark results.
+
+.. _generate_hpcg_panel:
+
+11.25) generate_hpcg_panel(SuperTwin)
+------------------------------
+
+Generates an HPCG benchmark panel as a Plotly figure for a given SuperTwin instance.
+
+- **Parameters**:
+
+    - **SuperTwin**: The SuperTwin instance containing configuration and data sources.
+
+- **Returns**:
+
+    - plotly.graph_objs.Figure: The generated HPCG benchmark panel figure.
+
+.. _get_thread_set:
+
+12) Flask Web Server with MongoDB Integration
+-----------------------------------------
+
+This script creates a Flask-based web server with MongoDB integration. It handles HTTP requests and interacts with a MongoDB database to fetch and display data.
+
+1. **Module Imports**:
+   - `sys`: Used for Python runtime environment manipulations.
+   - `utils`: Custom module, presumably for utility functions.
+   - `Flask`: Main class for creating a Flask web application.
+   - `request`, `jsonify`, `json`, `abort`: Flask modules for handling HTTP requests and responses.
+   - `CORS`, `cross_origin`: Flask-CORS modules for handling Cross-Origin Resource Sharing (CORS).
+   - `pprint`: Module for pretty-printing Python data structures.
+   - `pymongo`, `MongoClient`: Modules for interacting with MongoDB.
+   - `ObjectId`, `dumps`, `loads`: Modules from `bson` for handling BSON data.
+
+2. **Flask App Configuration**:
+   - `app`: Flask application instance.
+   - `CORS(app)`: Enables CORS for the Flask app.
+   - `app.config`: Configures CORS headers.
+
+3. **Global Variables**:
+   - `dummy_time`: Placeholder time value.
+   - `data`: Dictionary to store data.
+
+4. **Flask Routes**:
+   - `@app.route('/')`: Root route, returns a simple 'OK' response.
+   - `@app.route('/search')`: Search route, returns a JSON list of data.
+   - `@app.route('/query')`: Query route, handles data queries and returns JSON-formatted data.
+
+5. **main Function**:
+   - Connects to a MongoDB database using the `utils` module.
+   - Fills the `data` dictionary with data from MongoDB.
+   - Runs the Flask app on the specified host and port.
+
+6. **Execution**:
+   - Checks if the script is the main program and calls the `main` function.
+
+.. note:: Replace "dolap" and "10.36.54.195" with the appropriate arguments when calling the `main` function.
+
