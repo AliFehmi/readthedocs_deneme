@@ -2105,7 +2105,7 @@ This script creates a Flask-based web server with MongoDB integration. It handle
 
 .. note:: Replace "dolap" and "10.36.54.195" with the appropriate arguments when calling the `main` function.
 
-  13) Flask Web Server with InfluxDB Integration
+13) Flask Web Server with InfluxDB Integration
 ------------------------------------------
 
 This script creates a Flask-based web server integrated with InfluxDB for handling and processing time-series data.
