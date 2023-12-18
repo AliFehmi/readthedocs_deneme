@@ -2105,3 +2105,76 @@ This script creates a Flask-based web server with MongoDB integration. It handle
 
 .. note:: Replace "dolap" and "10.36.54.195" with the appropriate arguments when calling the `main` function.
 
+  13) Flask Web Server with InfluxDB Integration
+------------------------------------------
+
+This script creates a Flask-based web server integrated with InfluxDB for handling and processing time-series data.
+
+1. **Module Imports**:
+   - `influxdb.InfluxDBClient`: Used to connect to and interact with an InfluxDB database.
+   - `influxdb.SeriesHelper`: Assists in the creation of data series for InfluxDB.
+   - `pandas as pd`: Data manipulation and analysis library.
+   - `datetime`: Module for manipulating dates and times.
+   - `time`: Module for time-related tasks.
+   - `sys`: System-specific parameters and functions.
+   - `utils`: Custom module, presumably for utility functions.
+
+2. **Functions**:
+   - `query_string(metric, tagkey)`: Constructs a query string for InfluxDB.
+   - `difference(to_normal, normal)`: Calculates the time difference between two timestamps.
+   - `normalized(to_normal, difference)`: Adjusts a timestamp by a given time difference.
+   - `normalize_tag(SuperTwin, _tag, no_subtags)`: Normalizes time tags for a given metric in InfluxDB.
+   - `normalize_twin_tags(st1, st2, st3, st4)`: Normalizes time tags for multiple InfluxDB measurements.
+
+3. **Flask App Configuration**:
+   - `app`: Flask application instance.
+   - `CORS(app)`: Enables CORS for the Flask app.
+   - `app.config`: Configures CORS headers.
+
+4. **Flask Routes**:
+   - `@app.route('/')`: Root route, returns a simple 'OK' response.
+   - `@app.route('/search')`: Handles search requests.
+   - `@app.route('/query')`: Processes query requests and fetches data from InfluxDB.
+
+5. **Main Function**:
+   - Connects to InfluxDB and fetches data for specified tags.
+   - Runs the Flask app on a specified host and port.
+
+.. note:: The script uses utility functions from the `utils` module for database interactions and data processing. Ensure that the `utils` module is correctly configured and accessible.
+
+
+
+14)Remote Command Execution and Monitoring Script
+----------------------------------------------
+
+This Python script is designed to execute commands and scripts on remote systems (referred to as "SuperTwins") and observe their execution time. It uses SSH for remote execution and SCP for file transfer. Additionally, it integrates with Performance Co-Pilot (PCP) to monitor the performance metrics during the execution.
+
+1. **Module Imports**:
+   - Standard modules: `sys`, `subprocess`, `shlex`, `uuid`.
+   - SSH and SCP related modules: `paramiko`, `SCPClient`.
+   - Custom modules: `sampling`, `remote_probe`. These are assumed to be part of a larger framework for performance monitoring and analysis.
+   - Time measurement: `timeit.default_timer`.
+
+2. **Functions**:
+   
+   - `observe_wrap(SuperTwin, command)`: Executes a command on a remote system and observes its execution time. It sets up SSH and SCP connections, generates a unique observation ID, and runs the command while monitoring it with PCP.
+
+   - `observe_script_wrap(SuperTwin, script)`: Similar to `observe_wrap` but for executing a script file on the remote system. It transfers the script to the remote system and then executes it, again observing the execution time.
+
+   - `observe_single(SuperTwin, observation_id, command, obs_conf)`: A simplified version of `observe_wrap` which takes an existing observation ID and configuration to execute a single command.
+
+   - `observe_single_parameters(SuperTwin, path, affinity, observation_id, command, obs_conf)`: An extension of `observe_single` that allows specifying a working directory (`path`) and processor affinity (`affinity`) for the command.
+
+3. **Remote Execution and Monitoring Logic**:
+   - The script is built to handle tasks on remote systems, identified as SuperTwins, by executing commands or scripts on them.
+   - It uses SSH for remote command execution and SCP for file transfer.
+   - Performance monitoring is done using Performance Co-Pilot, which is triggered alongside the remote commands/scripts.
+   - Execution time is measured and returned for each task.
+
+4. **Usage Notes**:
+   - The script requires the SuperTwin objects to have specific attributes like SSH credentials and addresses.
+   - It assumes the existence of specific directories on the remote systems for storing and running scripts.
+   - The `sampling` and `remote_probe` modules are custom and need to be present for the script to function.
+
+.. note:: This script is part of a larger system and relies on external custom modules and specific remote system configurations. Ensure all dependencies are correctly set up and the remote systems are configured to accept SSH and SCP connections from the host running this script.
+
