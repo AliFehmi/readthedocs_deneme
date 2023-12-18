@@ -1566,6 +1566,7 @@ Generates a complete Grafana dashboard for roofline analysis.
     - String: URL of the generated Grafana dashboard.
 
 10) roofline_dashboard_panels.py
+++++++++++++++++++++++++++++++++
 
 .. _two_templates_one:
 
@@ -1672,7 +1673,7 @@ Customizes the layout of a Plotly figure for a Grafana dashboard with specific a
     - The updated Plotly figure with the new layout configuration.
 
 11) roofline_dashboard.py
-
++++++++++++++++++++++++++
 
 .. _generate_roofline_dashboard:
 
@@ -2067,7 +2068,7 @@ Generates an HPCG benchmark panel as a Plotly figure for a given SuperTwin insta
 .. _get_thread_set:
 
 12) Flask Web Server with MongoDB Integration
------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++
 
 This script creates a Flask-based web server with MongoDB integration. It handles HTTP requests and interacts with a MongoDB database to fetch and display data.
 
@@ -2106,7 +2107,7 @@ This script creates a Flask-based web server with MongoDB integration. It handle
 .. note:: Replace "dolap" and "10.36.54.195" with the appropriate arguments when calling the `main` function.
 
 13) Flask Web Server with InfluxDB Integration
-------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++
 
 This script creates a Flask-based web server integrated with InfluxDB for handling and processing time-series data.
 
@@ -2145,7 +2146,7 @@ This script creates a Flask-based web server integrated with InfluxDB for handli
 
 
 14)Remote Command Execution and Monitoring Script
-----------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++
 
 This Python script is designed to execute commands and scripts on remote systems (referred to as "SuperTwins") and observe their execution time. It uses SSH for remote execution and SCP for file transfer. Additionally, it integrates with Performance Co-Pilot (PCP) to monitor the performance metrics during the execution.
 
