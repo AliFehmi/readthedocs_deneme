@@ -19,7 +19,7 @@ This section documents the functions defined in the ``generate_plotly_panels_dd_
 .. _get_next_color:
 
 1.1) get_next_color()
----------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -38,7 +38,7 @@ The ``get_next_color()`` function cycles through a predefined list of color code
 .. _round_power_of_2(number):
 
 1.2) _round_power_of_2(number)
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -56,7 +56,7 @@ The ``_round_power_of_2(number)`` function rounds a given number to the nearest 
 .. _carm_eq:
 
 1.3) carm_eq(ai, bw, fp)
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -76,7 +76,7 @@ Calculates the minimum of the product of arithmetic intensity (ai) and bandwidth
 .. _upload_to_grafana:
 
 1.4) upload_to_grafana(json, server, api_key, verify)
------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -97,7 +97,7 @@ Uploads a JSON-formatted dashboard to a Grafana server using the provided API ke
 .. _get_dashboard_json:
 
 1.5) get_dashboard_json(dashboard, overwrite, message)
-------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -117,7 +117,7 @@ Generates JSON from a Grafana dashboard object for uploading.
 .. _template_dict:
 
 1.6) template_dict()
---------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -135,7 +135,7 @@ None.
 .. _return_line:
 
 1.7) return_line(ai, eq, name, color, dash)
--------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -157,7 +157,7 @@ Constructs a dictionary representing a line plot for Plotly.
 .. _line_spec:
 
 1.8) line_spec(color, dash)
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -176,7 +176,7 @@ Generates a specification for the style of a line in a Plotly graph.
 .. _two_templates_one:
 
 1.9) two_templates_one(data, layout)
-------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -195,7 +195,7 @@ Creates a Grafana panel with specific data and layout settings for displaying a 
 .. _all_these_lines:
 
 1.10) all_these_lines(datalines, data, ai, thread, color)
----------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -217,7 +217,7 @@ Generates multiple lines/traces for plotting based on performance data.
 .. _return_traces:
 
 1.11) return_traces(data, ai, thread)
--------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -237,7 +237,7 @@ Generates traces for plotting based on provided data, arithmetic intensity, and 
 .. _return_subtraces:
 
 1.12) return_subtraces(data, ai, thread, index)
------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -258,7 +258,7 @@ Generates subtraces for a specific thread and index, based on performance data a
 .. _thread_group:
 
 1.13) thread_group(fig, thread, color, data, ai, ai_list)
----------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -273,7 +273,7 @@ Adds multiple traces to a Plotly figure for a specific thread count.
 .. _thread_groups:
 
 1.14) thread_groups(fig, thread, color, data, ai, ai_list)
-----------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -297,7 +297,7 @@ Adds multiple grouped traces to a Plotly figure for different thread counts.
 .. _grafana_layout:
 
 1.15) grafana_layout(fig)
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -315,7 +315,7 @@ Adjusts the layout of a Plotly figure to fit well within a Grafana dashboard.
 .. _main:
 
 1.16) main(SuperTwin)
----------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
