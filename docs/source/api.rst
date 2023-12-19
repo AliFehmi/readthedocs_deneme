@@ -2354,3 +2354,961 @@ This Python script is designed to execute commands and scripts on remote systems
 
 .. note:: This script is part of a larger system and relies on external custom modules and specific remote system configurations. Ensure all dependencies are correctly set up and the remote systems are configured to accept SSH and SCP connections from the host running this script.
 
+.. _probing:
+
+Probing
+---------
+
+17) benchmark.py
+++++++++++++++++
+
+This script is designed to calculate and analyze the roofline model for stream benchmark results.
+
+Imports
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- detect_utils: A utility module for detection tasks.
+- subprocess: A module for running new applications or programs through Python.
+- pprint: A data pretty printer.
+
+Global Variables
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- mt_scale: A dictionary to store scaling metrics for different operations like Copy, Scale, Add, and Triad.
+
+Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. function:: get_ridge_point(bw, flop)
+
+    Calculates and returns the ridge point in the roofline model.
+
+    :param bw: Bandwidth.
+    :param flop: Floating point operations per second.
+    :return: Ridge point value.
+
+.. function:: peak_theoretical_flop(no_procs, core_per_proc, clock_speed, no_fma_units, max_vector_size)
+
+    Computes the peak theoretical floating point operations per second.
+
+    :param no_procs: Number of processors.
+    :param core_per_proc: Number of cores per processor.
+    :param clock_speed: Clock speed of the processor.
+    :param no_fma_units: Number of FMA (Fused Multiply-Add) units.
+    :param max_vector_size: Maximum vector size.
+    :return: Peak GFLOP/s value.
+
+.. function:: parse_one_stream_res(stream_res, threads)
+
+    Parses one set of STREAM benchmark results.
+
+    :param stream_res: Dictionary to store stream results.
+    :param threads: Number of threads.
+    :return: Updated stream_res dictionary.
+
+.. function:: start_bench()
+
+    Starts the STREAM benchmark.
+
+.. function:: get_roof_values(max_bw, peak_g_flop, ridge_point)
+
+    Generates roofline model values based on max bandwidth, peak GFLOPs, and ridge point.
+
+    :param max_bw: Maximum bandwidth.
+    :param peak_g_flop: Peak GFLOP/s value.
+    :param ridge_point: Ridge point in the roofline model.
+
+Main Execution
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. function:: main()
+
+    The main function to initiate the roofline model calculation process. It involves starting the benchmark, parsing results, and computing the roofline model.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To execute the script, run it with Python, ensuring all dependencies are satisfied.
+
+Example
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    if __name__ == "__main__":
+        main()
+
+18) detect_utils.py
++++++++++++++++++++
+
+
+This script is used for detecting and processing various hardware information on a system.
+
+Imports
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- contextlib: Utilities for common tasks involving the `with` statement.
+- os: Miscellaneous operating system interfaces.
+- re: Regular expression operations.
+- subprocess: Subprocess management.
+- sys: System-specific parameters and functions.
+- uuid: UUID objects according to RFC 4122.
+
+Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. function:: cmd(cmdline)
+
+    Executes a shell command and returns its output.
+
+    :param cmdline: Command line to be executed.
+    :return: Tuple (return code, output).
+
+.. function:: output_lines(cmdline)
+
+    Runs a shell command and returns its output split into lines.
+
+    :param cmdline: Command line to be executed.
+    :return: List of output lines.
+
+.. function:: parse_lldtool(hw_lst, interface_name, lines)
+
+    Parses the output from the `lldptool` command.
+
+    :param hw_lst: Hardware list to update.
+    :param interface_name: Network interface name.
+    :param lines: Output lines from `lldptool`.
+    :return: Updated hardware list.
+
+.. function:: get_lld_status(hw_lst, interface_name)
+
+    Retrieves LLDP status for a given network interface.
+
+    :param hw_lst: Hardware list to update.
+    :param interface_name: Network interface name.
+    :return: Updated hardware list.
+
+.. function:: parse_ethtool(hw_lst, interface_name, lines)
+
+    Parses the output from the `ethtool` command.
+
+    :param hw_lst: Hardware list to update.
+    :param interface_name: Network interface name.
+    :param lines: Output lines from `ethtool`.
+    :return: Updated hardware list.
+
+.. function:: get_ethtool_status(hw_lst, interface_name)
+
+    Retrieves ethtool status for a given network interface.
+
+    :param hw_lst: Hardware list to update.
+    :param interface_name: Network interface name.
+    :return: Updated hardware list.
+
+.. function:: which(program)
+
+    Searches for a given program in PATH and returns its full path.
+
+    :param program: Program to search for.
+    :return: Full path of the program or None.
+
+.. function:: size_in_gb(size)
+
+    Converts a size string to GB.
+
+    :param size: Size string (e.g., '8 GB').
+    :return: Size in GB.
+
+.. function:: clean_str(val)
+
+    Cleans a string from invalid UTF-8 characters.
+
+    :param val: String to be cleaned.
+    :return: Cleaned string.
+
+.. function:: clean_tuples(lst)
+
+    Cleans a list of tuples from invalid UTF-8 strings.
+
+    :param lst: List of tuples.
+    :return: Cleaned list of tuples.
+
+.. function:: _get_uuid_x86_64()
+
+    Retrieves UUID for x86_64 architecture.
+
+    :return: UUID string.
+
+.. function:: _get_uuid_ppc64le(hw_lst)
+
+    Retrieves UUID for ppc64le architecture.
+
+    :param hw_lst: Hardware list.
+    :return: UUID string.
+
+.. function:: get_uuid(hw_lst)
+
+    Retrieves system UUID based on architecture.
+
+    :param hw_lst: Hardware list.
+    :return: UUID string.
+
+.. function:: get_value(hw_lst, *vect)
+
+    Gets a specific value from the hardware list.
+
+    :param hw_lst: Hardware list.
+    :param vect: Tuple of keys to search for.
+    :return: Value or empty string if not found.
+
+.. function:: get_cidr(netmask)
+
+    Converts a netmask to CIDR notation.
+
+    :param netmask: Netmask string (e.g., '255.255.255.0').
+    :return: CIDR notation string.
+
+.. function:: from_file(filename)
+
+    Reads the first line of a file.
+
+    :param filename: Name of the file.
+    :return: First line of the file.
+
+.. function:: fix_bad_serial(hw_lst, system_uuid, mobo_id, nic_id)
+
+    Fixes bad serial numbers in the hardware list.
+
+    :param hw_lst: Hardware list.
+    :param system_uuid: System UUID.
+    :param mobo_id: Motherboard ID.
+    :param nic_id: NIC ID.
+
+.. function:: get_cpus(hw_lst)
+
+    Retrieves CPU information and updates the hardware list.
+
+    :param hw_lst: Hardware list to update.
+
+.. function:: modprobe(module)
+
+    Loads a kernel module using `modprobe`.
+
+    :param module: Name of the module to load.
+
+.. function:: detect_auxv()
+
+    Detects auxiliary vector information.
+
+    :return: List of tuples with auxv information.
+
+.. function:: parse_ahci(words)
+
+    Parses AHCI information from a list of words.
+
+    :param words: List of words to parse.
+    :return: List of tuples with parsed AHCI information.
+
+.. function:: parse_dmesg()
+
+    Runs `dmesg` and parses its output.
+
+    :return: List of tuples with parsed dmesg information.
+
+.. function:: search_nested(keyword, node, default_return=None)
+
+    Searches for a keyword in a nested dictionary or list.
+
+    :param keyword: Keyword to search for.
+    :param node: Nested dictionary or list.
+    :param default_return: Default return value if keyword not found.
+    :return: List of search results or default_return if not found.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To use this script, ensure all dependencies are installed and import the script in your Python project. Functions can then be called with appropriate parameters to retrieve hardware information.
+
+Example
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    hw_lst = []
+    get_ethtool_status(hw_lst, "eth0")
+    print(hw_lst)
+
+19) diskinfo.py
++++++++++++++++
+
+
+This script is used to detect and gather disk information on a system.
+
+Imports
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- os: Miscellaneous operating system interfaces.
+- re: Regular expression operations.
+- sys: System-specific parameters and functions.
+- detect_utils: Custom utility module for detection.
+- smart_utils: Custom utility module for SMART data handling.
+
+Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. function:: sizeingb(size)
+
+    Converts size from bytes to gigabytes.
+
+    :param size: Size in bytes.
+    :return: Size in gigabytes.
+
+.. function:: disksize(name)
+
+    Retrieves the disk size.
+
+    :param name: Disk name.
+    :return: Disk size in gigabytes.
+
+.. function:: disknames()
+
+    Retrieves the names of all disks.
+
+    :return: List of disk names.
+
+.. function:: get_disk_info(name, sizes, hw_lst)
+
+    Gathers various information about a disk.
+
+    :param name: Disk name.
+    :param sizes: Dictionary of disk sizes.
+    :param hw_lst: Hardware list to update.
+
+.. function:: get_disk_cache(name, hw_lst)
+
+    Retrieves disk cache information.
+
+    :param name: Disk name.
+    :param hw_lst: Hardware list to update.
+
+.. function:: get_disk_id(name, hw_lst)
+
+    Retrieves disk identifiers.
+
+    :param name: Disk name.
+    :param hw_lst: Hardware list to update.
+
+.. function:: parse_hdparm_output(output)
+
+    Parses the output from the `hdparm` command.
+
+    :param output: `hdparm` command output.
+    :return: Parsed data.
+
+.. function:: diskperfs(names)
+
+    Retrieves disk performance data.
+
+    :param names: List of disk names.
+    :return: Dictionary of disk performances.
+
+.. function:: disksizes(names)
+
+    Retrieves sizes for a list of disks.
+
+    :param names: List of disk names.
+    :return: Dictionary of disk sizes.
+
+.. function:: detect()
+
+    Main function to detect disk information.
+
+    :return: List of disk information tuples.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To use this script, ensure all dependencies are installed and import the script in your Python project. The `detect` function can be called to retrieve disk information.
+
+Example
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    detected_disks = detect()
+    for disk in detected_disks:
+        print(disk)
+
+20) parse_cpuid.py
+++++++++++++++++++
+
+
+This script parses CPUID information to gather detailed characteristics of the CPU such as cache, monitoring capabilities, and frequency details.
+
+Imports
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- detect_utils: Custom utility module for executing and capturing output of shell commands.
+
+Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. function:: check_faulty_report(name)
+
+    Checks if the CPU name corresponds to a known faulty CPUID report.
+
+    :param name: The name of the CPU.
+    :return: Boolean indicating whether the CPU has a known faulty report.
+
+.. function:: fix_faulty_report(info, name)
+
+    Fixes the faulty CPUID report for known issues.
+
+    :param info: The parsed CPUID information.
+    :param name: The name of the CPU.
+    :return: Fixed CPUID information.
+
+.. function:: gv_parentheses(cpuid_string)
+
+    Extracts information enclosed in parentheses.
+
+    :param cpuid_string: A string containing information in parentheses.
+    :return: Extracted information.
+
+.. function:: gv_parentheses_space(cpuid_string)
+
+    Extracts information enclosed in parentheses, including an additional preceding word.
+
+    :param cpuid_string: A string containing information in parentheses.
+    :return: Extracted information with an additional word.
+
+.. function:: parse_cpuid()
+
+    Parses CPUID information to extract various CPU characteristics.
+
+    :return: A dictionary containing parsed CPUID information.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To use this script, ensure that `detect_utils` is correctly implemented and accessible. The `parse_cpuid` function can be called to retrieve CPUID information.
+
+Example
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    cpu_info = parse_cpuid()
+    print('CPU Info:', cpu_info)
+
+21) parse_likwid_topology.py
+++++++++++++++++++++++++++++
+
+
+This script is designed to parse hardware affinity and topology using the Likwid tool, providing detailed information about sockets, domains, cache topology, and CPU-GPU affinity.
+
+Imports
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- detect_utils: Custom utility module for executing and capturing output of shell commands.
+- re: Regular expression module for string searching and manipulation.
+- pprint: Pretty-print module for formatted display of data structures.
+
+Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. function:: find_ind(to_find, str_list)
+
+    Finds the index of the first occurrence of a string in a list.
+
+    :param to_find: The string to find.
+    :param str_list: The list to search.
+    :return: The index of the found string or None.
+
+.. function:: find_ind_multiple(to_find, str_list, occurrence)
+
+    Finds the index of a specific occurrence of a string in a list.
+
+    :param to_find: The string to find.
+    :param str_list: The list to search.
+    :param occurrence: The occurrence number to find (1-based).
+    :return: The index of the found occurrence or None.
+
+.. function:: parse_cache_topology(topol, ret_dict, name, level)
+
+    Parses cache topology information from the Likwid output.
+
+    :param topol: The topology data as a list of strings.
+    :param ret_dict: The dictionary to store parsed data.
+    :param name: The cache level name (e.g., 'L1D').
+    :param level: The cache level.
+    :return: The dictionary with added cache topology information.
+
+.. function:: parse_likwid()
+
+    Parses output from the Likwid tool to extract hardware topology.
+
+    :return: A list containing socket groups, domains, cache topology, and GPU info.
+
+.. function:: remove_whitespace(ls)
+
+    Removes empty strings from a list.
+
+    :param ls: The list to clean.
+    :return: The cleaned list.
+
+.. function:: parse_affinity()
+
+    Parses CPU affinity information from the Likwid tool.
+
+    :return: A dictionary containing parsed CPU affinity data.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To use this script, ensure that Likwid is installed and accessible. Call the `parse_likwid` function to retrieve hardware topology information and `parse_affinity` for CPU affinity data.
+
+Example
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    socket_groups, domains, cache_topology, gpu_info = parse_likwid()
+    print('Socket groups:', socket_groups)
+    print('Domains:', domains)
+    print('Cache topology:', cache_topology)
+    print('GPU info:', gpu_info)
+
+    affinity = parse_affinity()
+    pprint(affinity)
+
+22) parse_lshw.py
++++++++++++++++++
+
+
+This script utilizes the `lshw` tool to parse detailed hardware information of a system, including CPU, memory, disk, network, and kernel data.
+
+Imports
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- json: Module for JSON manipulation.
+- detect_utils: Custom utility module for executing and capturing output of shell commands.
+- pprint: Pretty-print module for formatted display of data structures.
+- collections: Module for specialized container datatypes.
+
+Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. function:: generate_hardware_dict(to_gen, info_list)
+
+    Generates a nested dictionary structure from a list of tuples.
+
+    :param to_gen: The dictionary to be generated.
+    :param info_list: The list of hardware information tuples.
+    :return: The updated dictionary with hardware information.
+
+.. function:: find_field_recursive(top_dict, _class, _description, found)
+
+    Recursively searches for a hardware component in the nested dictionary.
+
+    :param top_dict: The top-level dictionary.
+    :param _class: The class of the hardware component.
+    :param _description: The description of the hardware component.
+    :param found: List to store the found components.
+    :return: Updates the `found` list with matching components.
+
+.. function:: find_field(top_dict, _class, _description, found)
+
+    Wrapper function for `find_field_recursive`.
+
+    :param top_dict: The top-level dictionary.
+    :param _class: The class of the hardware component.
+    :param _description: The description of the hardware component.
+    :param found: List to store the found components.
+
+.. function:: parse_lshw()
+
+    Parses the output of the `lshw` command to extract hardware information.
+
+    :return: Dictionary containing parsed hardware information.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To use this script, ensure that `lshw` is installed on the system. The script will parse the hardware information and print it in a structured format.
+
+Example
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    hardware_info = parse_lshw()
+    pprint.pprint(hardware_info)
+
+23) parse_showevtinfo.py
+++++++++++++++++++++++++
+
+This script uses the `pmu_event_query` tool to parse Performance Monitoring Unit (PMU) event information in a system.
+
+Imports
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- detect_utils: Custom utility module for executing and capturing output of shell commands.
+- json: Module for JSON manipulation.
+- pprint: Pretty-print module for formatted display of data structures.
+
+Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. function:: find_pmu(keys, name_line)
+
+    Finds a PMU in the list of keys based on a name line.
+
+    :param keys: List of PMU keys.
+    :param name_line: Line containing the PMU name.
+    :return: The PMU key if found, otherwise None.
+
+.. function:: get_masks_modifiers(lines)
+
+    Parses mask and modifier information from PMU event lines.
+
+    :param lines: Lines containing PMU event details.
+    :return: Dictionary with masks and modifiers.
+
+.. function:: parse_event(pmus, event)
+
+    Parses a PMU event and updates the PMU dictionary.
+
+    :param pmus: Dictionary of PMUs.
+    :param event: String containing the PMU event data.
+    :return: Updated PMU dictionary.
+
+.. function:: parse_evtinfo()
+
+    Parses the output from the PMU event query tool.
+
+    :return: Dictionary containing parsed PMU event information.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Execute this script to parse PMU event information from the system. The results are printed in a structured format and saved to a JSON file.
+
+Example
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    event_info = parse_evtinfo()
+    pprint.pprint(event_info)
+
+    # Save to JSON file
+    with open("evtinfo.json", "w") as outfile:
+        json.dump(event_info, outfile)
+
+24) probe.py
+++++++++++++
+
+This script gathers detailed hardware information from a system, including CPU, memory, disk, network, and GPU details. It utilizes several custom modules to probe different hardware components.
+
+Imports
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- system, diskinfo, detect_utils: Custom modules for detecting various hardware components.
+- parse_cpuid, parse_likwid_topology, parse_lshw, parse_evtinfo: Custom modules for parsing CPU, memory, and hardware topology information.
+- json: Module for JSON manipulation.
+- sys: System-specific parameters and functions.
+
+Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. function:: choose_info(hostname, system, cache_info, socket_groups, domains, cache_topology, affinity, gpu_info, PMUs, pmprobe)
+
+    Consolidates hardware information into a chosen format for further processing.
+
+    :param hostname: System hostname.
+    :param system: Dictionary containing system information.
+    :param cache_info: CPU cache information.
+    :param socket_groups: Information about CPU socket groups.
+    :param domains: NUMA domain information.
+    :param cache_topology: Cache topology information.
+    :param affinity: CPU affinity information.
+    :param gpu_info: GPU information.
+    :param PMUs: Performance Monitoring Units information.
+    :param pmprobe: Available metrics from PMU.
+    :return: Dictionary with consolidated hardware information.
+
+.. function:: generate_hardware_dict(to_gen, info_list)
+
+    Generates a nested dictionary from a list of hardware information.
+
+    :param to_gen: The initial dictionary to populate.
+    :param info_list: List of hardware information tuples.
+    :return: Nested dictionary of hardware information.
+
+.. function:: print_hardware_dict(hw_dict)
+
+    Prints the hardware dictionary in a structured format.
+
+    :param hw_dict: Dictionary containing hardware information.
+
+.. function:: get_pmprobe()
+
+    Retrieves available metrics from the system's Performance Monitoring Units.
+
+    :return: List of available metrics.
+
+.. function:: main()
+
+    Main function to execute the hardware probing. It gathers information from various sources and saves it to a JSON file.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Run the script to probe the system's hardware and generate a JSON file with detailed information. This file can be used for further analysis or integration with other systems.
+
+Example
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    info = main()
+    # info now contains detailed hardware information about the system
+
+25) smart_utils_info.py
++++++++++++++++++++++++
+
+This documentation describes two Python dictionaries, `NVME_INFOS` and `SMART_FIELDS`, used for mapping NVMe drive and SMART attributes to more readable formats.
+
+NVME_INFOS Dictionary
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The `NVME_INFOS` dictionary maps NVMe drive attribute labels to their corresponding key names. This mapping is useful for processing and presenting NVMe drive information in a structured and comprehensible manner.
+
+Attributes include:
+
+- Model Number
+- Serial Number
+- Firmware Version
+- Total NVM Capacity
+- Warning and Critical Temperature Thresholds
+- Critical Warning
+- Temperature
+- Power Cycles
+- Power On Hours
+- Unsafe Shutdowns
+- Media and Data Integrity Errors
+- Error Information Log Entries
+
+SMART_FIELDS Dictionary
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The `SMART_FIELDS` dictionary is designed to map attributes obtained from SMART (Self-Monitoring, Analysis, and Reporting Technology) diagnostics to user-friendly key names.
+
+Attributes include:
+
+- Serial Number
+- SMART Health Status
+- Specified Cycle Count Over Device Lifetime
+- Accumulated Start-Stop Cycles
+- Specified Load-Unload Count Over Device Lifetime
+- Accumulated Load-Unload Cycles
+- Power On Hours
+- Blocks Sent to Initiator
+- Blocks Received from Initiator
+- Blocks Read from Cache and Sent to Initiator
+- Non-Medium Error Count
+- Current Drive Temperature
+- Drive Trip Temperature
+- Manufacture Date
+- Rotation Rate
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+These dictionaries are primarily used in scripts or applications that interpret data from NVMe drives or SMART diagnostics. By using these dictionaries, data can be transformed from raw output to a more readable and meaningful format for analysis or display.
+
+Example
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    nvme_info = parse_nvme_output(raw_nvme_output, NVME_INFOS)
+    smart_info = parse_smart_output(raw_smart_output, SMART_FIELDS)
+
+    # nvme_info and smart_info now contain structured and readable information
+
+26) smart_utils.py
+++++++++++++++++++
+
+This documentation describes a set of Python functions used for retrieving S.M.A.R.T (Self-Monitoring, Analysis, and Reporting Technology) data from disks. These functions are designed to parse various attributes and logs from disks supporting both SCSI and ATA standards.
+
+Functions Overview
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``_parse_line(line)``: Strips and decodes the line, handling any errors in encoding.
+- ``read_smart_field(hwlst, line, device_name, item, title)``: Reads a specific SMART field from a line and appends it to the hardware list (hwlst).
+- ``read_smart_scsi_error_log(hwlst, line, device_name, error_log)``: Reads and processes SCSI error log entries.
+- ``read_smart_scsi(hwlst, device, optional_flag="", mode="")``: Processes SMART information for SCSI devices.
+- ``read_smart_ata(hwlst, device, optional_flag="", mode="")``: Processes SMART information for ATA devices.
+- ``read_smart(hwlst, device, optional_flag="")``: Determines the device type (SCSI or ATA) and calls the appropriate function to read SMART data.
+- ``read_smart_nvme(hwlst, device_name)``: Reads SMART information specific to NVMe devices.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+These functions are typically called with the following parameters:
+
+- ``hwlst``: A list that the function will append hardware information to.
+- ``line``: A line of text (usually from smartctl output) to be processed.
+- ``device``: The device name (e.g., /dev/sda).
+- ``device_name``: The basename of the device.
+- ``item`` and ``title``: Used to identify and label the SMART field.
+- ``optional_flag`` and ``mode``: Additional flags or modes for smartctl commands.
+
+Example
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    hwlst = []
+    device = "/dev/sda"
+    read_smart(hwlst, device)
+
+After execution, ``hwlst`` will contain a list of tuples representing various SMART attributes of the device.
+
+27) system.py
++++++++++++++
+
+The `detect` function is designed to gather various system characteristics by analyzing the output of the `lshw` command. It parses the XML output from `lshw` and populates a list with hardware information.
+
+Function Overview
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``detect(output=None)``: Main function to detect system characteristics.
+
+Parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^
+- ``output``: (Optional) The output of the `lshw -xml` command. If not provided, the function will execute `lshw -xml` internally.
+
+Returns
+^^^^^^^^^^^^^^^^^^^^^^^^^
+- A list of tuples, where each tuple represents a piece of hardware information.
+
+Description
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The function uses various helper methods to parse the `lshw` XML output:
+
+- ``_find_element``: Searches for specific elements in the XML and populates the hardware list.
+- Other helper functions are used to handle the parsing of different system components, such as motherboard, BIOS, memory, and network interfaces.
+
+The function also utilizes external utility functions from the `detect_utils` module to gather additional information, including CPU details, operating system version, kernel version, and architecture.
+
+Usage Example
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    hardware_info = detect()
+
+After execution, `hardware_info` will contain a list of tuples representing various system attributes like CPU, motherboard, network interfaces, and more.
+
+Note
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This function is designed to work on systems where `lshw` is available and provides XML output. It may need modifications to work correctly on different system configurations or in environments where `lshw` is not available.
+
+28) detect_utils.py
++++++++++++++++++++
+
+This Python module provides functions for detecting various system hardware and configuration details, primarily using system commands and parsing their output.
+
+Functions Overview
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``cmd(cmdline)``: Executes a shell command and returns its exit status and output.
+- ``output_lines(cmdline)``: Runs a shell command and returns the output as lines.
+- ``parse_lldtool(hw_lst, interface_name, lines)``: Parses LLDP tool output and adds parsed data to the hardware list.
+- ``get_lld_status(hw_lst, interface_name)``: Gets LLDP status for a given network interface.
+- ``parse_ethtool(hw_lst, interface_name, lines)``: Parses ethtool output for various network interface properties.
+- ``get_ethtool_status(hw_lst, interface_name)``: Retrieves ethtool status for a network interface.
+- ``which(program)``: Checks if a program is executable and returns its path.
+- ``size_in_gb(size)``: Converts size to GB format.
+- ``clean_str(val)``: Cleans up strings with invalid UTF-8 encoding.
+- ``clean_tuples(lst)``: Cleans a list of tuples from bad UTF-8 strings.
+- ``get_uuid(hw_lst)``: Retrieves the UUID of the system.
+- ``get_value(hw_lst, *vect)``: Retrieves a value from the hardware list.
+- ``get_cidr(netmask)``: Converts a netmask to CIDR format.
+- ``from_file(filename)``: Reads the first line of a file.
+- ``fix_bad_serial(hw_lst, system_uuid, mobo_id, nic_id)``: Fixes bad serial numbers known for certain vendors.
+- ``get_cpus(hw_lst)``: Retrieves CPU information and adds it to the hardware list.
+- ``modprobe(module)``: Loads a kernel module using modprobe.
+- ``detect_auxv()``: Detects auxiliary vector (AUXV) information.
+- ``parse_ahci(words)``: Parses AHCI information from dmesg output.
+- ``parse_dmesg()``: Runs and parses dmesg output.
+
+Description
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+These functions are utility tools designed to extract and parse hardware information from a Linux-based system. They use various system tools like `lshw`, `ethtool`, `dmidecode`, and system files to gather information such as CPU details, network interface configurations, system UUID, and more.
+
+The functions primarily operate by executing system commands and parsing their output to collect detailed information about different components of the system.
+
+Usage Example
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    hw_lst = []
+    get_cpus(hw_lst)
+    print(hw_lst)
+
+This example populates `hw_lst` with CPU-related information. The module functions can be used similarly to gather other types of system information.
+
+Note
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The module is designed for use on Linux-based systems. It may require adjustments or may not function as intended on non-Linux systems or in environments where certain system tools are unavailable or restricted.
+
+29) remote_probe.py
++++++++++++++++++++
+
+This module is designed to remotely probe a system for hardware and configuration information using SSH and SCP.
+
+Overview
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The script connects to a remote host via SSH, executes various commands to gather system information, and then uses SCP to transfer the data back to the local machine.
+- The remote probing involves executing scripts located in specified paths (`system_query_path`, `pmu_query_path`) on the remote host.
+- The script requires `paramiko` and `scp` Python modules for SSH and SCP functionalities, respectively.
+
+Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``progress4(filename, size, sent, peername)``: Callback function for SCP progress.
+- ``run_sudo_command(ssh_client, SSHkey, name, command)``: Executes a command with sudo on the remote system.
+- ``run_sudo_command_perfevent(ssh_client, SSHkey, name, command)``: Specialized function for executing performance-related commands.
+- ``run_command(ssh_client, name, command)``: Executes a regular command on the remote system.
+- ``main(*args)``: Main function to handle remote system probing.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The script can be executed directly from the command line or imported as a module. It supports passing the remote host's SSH credentials (host, username, password) as arguments. If credentials are not provided, it prompts the user for them.
+
+Example Command
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    python remote_system_probing.py <remote_host> <username> <password>
+
+This command would initiate the probing process on the specified remote host using the provided SSH credentials.
+
+Note
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Ensure that the paths to the `system_query` and `pmu_event_query` directories are correctly set and accessible.
+- The script requires appropriate permissions on the remote system to execute commands and access system information.
+- The script is designed for Linux-based systems and might need adjustments for other operating systems.
