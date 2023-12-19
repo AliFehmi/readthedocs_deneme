@@ -1,6 +1,11 @@
 API
 ===
 
+.. _dashboard:
+
+Dashboard
+---------
+
 .. autosummary::
    :toctree: generated
 
@@ -2273,6 +2278,10 @@ Example
     if __name__ == '__main__':
         main("dolap", "10.36.54.195")
 
+.. _observation:
+
+Observation
+-----------
 
 15) Flask Web Server with InfluxDB Integration
 ++++++++++++++++++++++++++++++++++++++++++++++
