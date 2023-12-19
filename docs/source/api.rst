@@ -3312,3 +3312,161 @@ Note
 - Ensure that the paths to the `system_query` and `pmu_event_query` directories are correctly set and accessible.
 - The script requires appropriate permissions on the remote system to execute commands and access system information.
 - The script is designed for Linux-based systems and might need adjustments for other operating systems.
+
+.. _sampling:
+
+Sampling
+---------
+
+30) initiate.py
++++++++++++++++
+
+This script is designed for system monitoring and dashboard generation using a combination of tools and databases like InfluxDB and MongoDB.
+
+Overview
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The script facilitates the collection of system metrics, their storage in InfluxDB, and the creation of visual dashboards for monitoring.
+- It utilizes a Digital Twin representation of the system for detailed monitoring.
+- The script relies on various external libraries and assumes certain directory structures and file locations.
+
+Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``get_date_tag()``: Generates a unique date-based tag for each run.
+- ``generate_pcp2influxdb_config(config_file, tag, sourceIP, source_name)``: Generates a configuration file for Performance Co-Pilot (PCP) to InfluxDB data transfer.
+- ``get_mongo_database(mongodb_name)``: Establishes a connection to a MongoDB database.
+- ``get_influx_database(influxdb_name)``: Creates and connects to an InfluxDB database.
+- ``run_single(hostname, date, config_file, dt_pruned, command)``: Executes a single command for system monitoring and logs the data.
+- ``run_commands(hostname, date, config_file, dt_pruned, commands)``: Executes multiple system monitoring commands.
+- ``system_dashboard_prepare(hostname, twin_id)``: Prepares the system dashboard for the specified host.
+- ``system_dashboard_launch(comp_dashes)``: Launches the system dashboard.
+- ``read_commands(commands_file)``: Reads monitoring commands from a file.
+- ``main(hostname, hostIP, hostProbFile, monitoringMetricsConf)``: Main function that orchestrates the monitoring and dashboard generation.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To use the script, ensure the required MongoDB and InfluxDB instances are running and accessible. The script should be executed with the hostname, IP address of the host, a JSON file containing system information, and a configuration file for monitoring metrics.
+
+Example Command
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    python system_monitoring.py <hostname> <hostIP> <hostProbFile> <monitoringMetricsConf>
+
+Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Python libraries: `datetime`, `subprocess`, `influxdb`, `pymongo`, `paramiko`, `scp`.
+- External tools: InfluxDB, MongoDB, Performance Co-Pilot (PCP).
+
+Note
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The script is designed for Linux-based systems and might require adjustments for other operating systems.
+- Proper permissions and network accessibility are necessary for the script to function correctly.
+- The script assumes that the required external tools and databases are already installed and configured.
+
+
+
+31) sampling.py
++++++++++++++++
+
+This script facilitates the setup of Performance Co-Pilot (PCP) to InfluxDB configurations for system performance monitoring.
+
+Overview
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The script helps in setting up and managing the configuration for PCP to monitor system metrics and store them in InfluxDB.
+- It supports remote configuration and execution of performance monitoring daemons.
+- The script is part of a larger framework that involves remote system monitoring and data analysis.
+
+Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``get_date_tag()``: Generates a unique timestamp tag.
+- ``add_pcp(SuperTwin, config_lines)``: Adds PCP specific configuration lines.
+- ``generate_pcp2influxdb_config(SuperTwin)``: Generates a PCP to InfluxDB configuration file based on the provided `SuperTwin` object.
+- ``generate_pcp2influxdb_config_observation(SuperTwin, observation_id)``: Generates a PCP to InfluxDB configuration for a specific observation.
+- ``generate_perfevent_conf(SuperTwin)``: Creates a configuration file for performance events based on the `SuperTwin` object.
+- ``reconfigure_perfevent(SuperTwin)``: Reconfigures the remote performance event monitoring daemon.
+- ``main(SuperTwin)``: Main function that orchestrates the configuration generation and starts the monitoring process.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To use this script, an instance of `SuperTwin` (a custom object representing the system to be monitored) should be provided. This object contains details like system name, metrics to be monitored, and other necessary configurations.
+
+Example Command
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    python performance_monitoring.py <SuperTwin_Object>
+
+Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Python libraries: `datetime`, `subprocess`, `shlex`, `paramiko`, `scp`.
+- External tools: InfluxDB, PCP (Performance Co-Pilot).
+
+Note
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The script is designed to work in a system where InfluxDB and PCP are installed and configured.
+- It requires network accessibility to the system being monitored.
+- The script is part of a larger monitoring and analysis framework, and its functionality is dependent on the correct setup of this framework.
+
+
+.. _twin_description:
+
+twin_description
+---------
+
+32) generate_date.py
+++++++++++++++++++++
+
+This script generates a digital twin of a system for monitoring purposes, using Performance Co-Pilot (PCP) and other system metrics.
+
+Overview
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The script constructs a digital twin, a virtual model of a physical system, to facilitate monitoring and analysis.
+- It leverages system metrics, including those provided by PCP, to build a comprehensive representation of the system's state.
+- The digital twin is constructed as a set of interfaces, each representing different system components like CPU, memory, disk, network, and others.
+
+Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The script includes various functions to add components (CPU, memory, etc.), properties, and relationships to the digital twin.
+- Functions like `get_interface`, `get_relationship`, and `get_property` help in building the structure of the digital twin.
+- Specialized functions like `add_cpus`, `add_memory`, `add_disk`, and `add_network` are used to add specific system components to the twin.
+- The `main` function orchestrates the process, using system information to generate the complete digital twin.
+
+Usage
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To use this script, system information needs to be provided. This can include details about CPUs, memory, storage, network interfaces, and performance metrics.
+
+Example Command
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    python digital_twin_generator.py <System_Info>
+
+Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Python libraries: `json`, `datetime`, `subprocess`, `shlex`.
+- External tools and libraries: Performance Co-Pilot (PCP), Paramiko for SSH communication.
+
+Note
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- The script is designed for advanced system monitoring and analysis tasks.
+- It requires an understanding of system architecture and performance metrics.
+- The generated digital twin can be used in various monitoring and analysis applications, like predictive maintenance, system optimization, and troubleshooting.
+
