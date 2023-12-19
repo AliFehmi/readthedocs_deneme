@@ -338,7 +338,7 @@ This section documents the functions defined in the ``monitoring_dashboard_modul
 .. _get_next_id:
 
 2.1) get_next_id()
-------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -353,7 +353,7 @@ Generates and returns a unique identifier by incrementing a global counter.
 .. _get_params:
 
 2.2) get_params(td, measurement)
---------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -373,7 +373,7 @@ Retrieves parameters for a specific measurement from a digital twin description.
 .. _get_params_interface_known:
 
 2.3) get_params_interface_known(td, interface, measurement)
------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -394,7 +394,7 @@ Fetches parameters for a given measurement from a specified interface in the dig
 .. _get_topology:
 
 2.4) get_topology(td)
----------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -413,7 +413,7 @@ Analyzes and returns the system topology from its digital twin description.
 .. _stat_panel:
 
 2.5) stat_panel(SuperTwin, h, w, x, y, color_scheme, metric, empty_dash)
-------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -438,7 +438,7 @@ Adds a statistical panel to a Grafana dashboard.
 .. _name_panel:
 
 2.6) name_panel(SuperTwin, empty_dash)
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -458,7 +458,7 @@ Adds a panel displaying the name of the digital twin to the dashboard.
 .. _comprehend:
 
 2.7) comprehend(topology, wanted, unit)
----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -479,7 +479,7 @@ Filters and returns elements from the system topology based on specified criteri
 .. _freq_clock_panel:
 
 2.8) freq_clock_panel(SuperTwin, h, w, x, y, threads, empty_dash)
------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -501,7 +501,7 @@ Creates a dashboard panel for displaying frequency clock data for specified thre
 .. _load_clock_panel:
 
 2.9) load_clock_panel(SuperTwin, h, w, x, y, empty_dash)
---------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -524,7 +524,7 @@ This section documents the functions defined in the ``monitoring_dashboard_saved
 .. _get_next_id:
 
 3.1) get_next_id()
-------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -539,7 +539,7 @@ Generates and returns a unique identifier by incrementing a global counter.
 .. _get_params:
 
 3.2) get_params(td, measurement)
---------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -559,7 +559,7 @@ Retrieves parameters for a specific measurement from a digital twin description.
 .. _get_params_interface_known:
 
 3.3) get_params_interface_known(td, interface, measurement)
------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -580,7 +580,7 @@ Fetches parameters for a given measurement from a specified interface in the dig
 .. _get_topology:
 
 3.4) get_topology(td)
----------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -599,7 +599,7 @@ Analyzes and returns the system topology from its digital twin description.
 .. _generate_monitoring_dashboard:
 
 3.5) generate_monitoring_dashboard(SuperTwin)
----------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -624,7 +624,7 @@ This section documents the functions defined in the ``monitoring_dashboard.py`` 
 .. _get_next_id:
 
 4.1) get_next_id()
-------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -639,7 +639,7 @@ Increments and returns the next unique identifier from a global counter.
 .. _get_params:
 
 4.2) get_params(td, measurement)
---------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -659,7 +659,7 @@ Retrieves parameter information for a specified measurement from a digital twin 
 .. _get_params_interface_known:
 
 4.3) get_params_interface_known(td, interface, measurement)
------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -680,7 +680,7 @@ Fetches parameter information for a specified measurement from a known interface
 .. _get_topology:
 
 4.4) get_topology(td)
----------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -699,7 +699,7 @@ Analyzes a digital twin description to determine the system topology, specifical
 .. _generate_monitoring_dashboard:
 
 4.5) generate_monitoring_dashboard(SuperTwin)
----------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -721,7 +721,7 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 .. _stat_panel:
 
 5.1) stat_panel(datasource, _id, h, w, x, y, color_scheme, title)
-------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -746,7 +746,7 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 .. _stat_query:
 
 5.2) stat_query(datasource, alias, measurement, param)
--------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -767,7 +767,7 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 .. _name_panel_html:
 
 5.3) name_panel_html(datasource, _id, hostname)
-------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -787,7 +787,7 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 .. _name_panel:
 
 5.4) name_panel(datasource, _id, hostname)
--------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -807,7 +807,7 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 .. _clock_panel:
 
 5.5) clock_panel(datasource, _id, h, w, x, y, color_scheme, title)
-------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -832,7 +832,7 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 .. _clock_query:
 
 5.6) clock_query(datasource, alias, measurement, param)
--------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -855,7 +855,7 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 .. _small_single_timeseries:
 
 5.7) small_single_timeseries(datasource, _id, h, w, x, y, title)
------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -879,7 +879,7 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 .. _small_single_query:
 
 5.8) small_single_query(datasource, alias, measurement)
----------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -899,7 +899,7 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 .. _all_network_panel:
 
 5.9) all_network_panel(datasource, _id, h, w, x, y)
-----------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -922,7 +922,7 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 .. _disk_panel:
 
 5.10) disk_panel(datasource, _id, h, w, x, y, title)
-----------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -946,7 +946,7 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 .. _general_panel:
 
 5.11) general_panel(datasource, _id, h, w, x, y, title)
--------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -970,7 +970,7 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 .. _name_panel_last:
 
 5.12) name_panel_last(datasource, _id, hostname)
-------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -990,13 +990,11 @@ Generates a Grafana monitoring dashboard for the given digital twin, configuring
 6) observation_standard.py
 ++++++++++++++++++++++++++
 
-Functions
----------
 
 .. _next_y:
 
 6.1) next_y()
---------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -1010,7 +1008,7 @@ Functions
 .. _current_y:
 
 6.2) current_y()
-----------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -1024,7 +1022,7 @@ Functions
 .. _upload_to_grafana:
 
 6.3) upload_to_grafana(json, server, api_key, verify=True)
------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -1045,7 +1043,7 @@ Functions
 .. _get_dashboard_json:
 
 6.4) get_dashboard_json(dashboard, overwrite, message="Updated by grafanalib")
--------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -1065,7 +1063,7 @@ Functions
 .. _template_dict:
 
 6.5) template_dict(observation_id)
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -1083,7 +1081,7 @@ Functions
 .. _find_my_socket:
 
 6.6) find_my_socket(socket_threads, thread)
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -1102,7 +1100,7 @@ Functions
 .. _find_from_likwid_pin:
 
 6.7) find_from_likwid_pin(SuperTwin, affinity)
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -1121,7 +1119,7 @@ Functions
 .. _find_from_likwid_pin_old:
 
 6.8) find_from_likwid_pin_old(affinity)
-----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -1139,7 +1137,7 @@ Functions
 .. _involved_resolve:
 
 6.9) involved_resolve(threads)
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -1157,7 +1155,7 @@ Functions
 .. _get_field_and_metric:
 
 6.10) get_field_and_metric(SuperTwin, involved, pmu_metric)
------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -1177,7 +1175,7 @@ Functions
 .. _main:
 
 6.11) main(SuperTwin, observation)
-----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -1196,7 +1194,7 @@ Functions
 .. _multinode:
 
 6.12) multinode(st1, o1, st2, o2, st3, o3, st4, o4)
----------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. rubric:: ➤ Functionality
 
@@ -1221,7 +1219,7 @@ This section documents the functions defined in the ``panels_multinode.py`` file
 .. _ret_ts_panel:
 
 7.1) ret_ts_panel(y, title)
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This function returns a time series panel configuration for Grafana.
 
@@ -1238,7 +1236,7 @@ This function returns a time series panel configuration for Grafana.
 .. _ret_query:
 
 7.2) ret_query(alias, measurement, field, tag, datasource)
------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This function generates a query configuration for Grafana panels.
 
@@ -1258,7 +1256,7 @@ This function generates a query configuration for Grafana panels.
 .. _ret_gauge_panel:
 
 7.3) ret_gauge_panel(title, y)
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This function returns a gauge panel configuration for Grafana.
 
@@ -1272,14 +1270,14 @@ This function returns a gauge panel configuration for Grafana.
     - A dictionary representing the gauge panel configuration.
 
 8) panels_standard.py
-------------------
+++++++++++++++++++++++
 
 This section documents the functions defined in the ``panels_standard.py`` file.
 
 .. _ret_ts_panel:
 
 8.1) ret_ts_panel(datasource, y, title)
------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This function returns a time series panel configuration for Grafana.
 
@@ -1297,7 +1295,7 @@ This function returns a time series panel configuration for Grafana.
 .. _ret_query:
 
 8.2) ret_query(alias, measurement, field, tag)
------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This function generates a query configuration for Grafana panels.
 
@@ -1316,7 +1314,7 @@ This function generates a query configuration for Grafana panels.
 .. _ret_gauge_panel:
 
 8.3) ret_gauge_panel(datasource, title, y)
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This function returns a gauge panel configuration for Grafana.
 
@@ -1334,7 +1332,7 @@ This function returns a gauge panel configuration for Grafana.
 .. _grafana_layout_2:
 
 8.4) grafana_layout_2(fig)
----------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This function updates the layout configuration for a Plotly figure to match a specific Grafana style.
 
@@ -1350,7 +1348,7 @@ This function updates the layout configuration for a Plotly figure to match a sp
 .. _two_templates_two:
 
 8.5) two_templates_two(data, layout)
---------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This function creates a Grafana panel template for displaying Plotly figures.
 
@@ -1369,7 +1367,7 @@ This function creates a Grafana panel template for displaying Plotly figures.
 .. _next_panel_id:
 
 9.1) next_panel_id
--------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Increments and returns the global variable `glob_panel_id`, used for tracking Grafana panel IDs.
 
@@ -1380,7 +1378,7 @@ Increments and returns the global variable `glob_panel_id`, used for tracking Gr
 .. _get_json_static_panel:
 
 9.2) get_json_static_panel(h, w, x, y, title, emp, target)
------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Creates a JSON structure for a static panel in Grafana.
 
@@ -1401,7 +1399,7 @@ Creates a JSON structure for a static panel in Grafana.
 .. _get_stream_bw:
 
 9.3) get_stream_bw(twin)
--------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Calculates the maximum bandwidth from STREAM benchmark results.
 
@@ -1416,7 +1414,7 @@ Calculates the maximum bandwidth from STREAM benchmark results.
 .. _peak_theoretical_flop:
 
 9.4) peak_theoretical_flop(no_procs, core_per_proc, clock_speed, no_fma_units, max_vector_size)
-------------------------------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Calculates the peak theoretical floating-point operations per second.
 
@@ -1435,7 +1433,7 @@ Calculates the peak theoretical floating-point operations per second.
 .. _get_ridge_point:
 
 9.5) get_ridge_point(bw, flop)
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Calculates the ridge point of a roofline model.
 
@@ -1451,7 +1449,7 @@ Calculates the ridge point of a roofline model.
 .. _get_roof_values:
 
 9.6) get_roof_values(max_bw, peak_g_flop, ridge_point)
--------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Determines roofline model values.
 
@@ -1468,7 +1466,7 @@ Determines roofline model values.
 .. _get_flops_values:
 
 9.7) get_flops_values(twin)
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Extracts FLOPS values from a given twin data structure.
 
@@ -1483,7 +1481,7 @@ Extracts FLOPS values from a given twin data structure.
 .. _get_dram_roofline_panel:
 
 9.8) get_dram_roofline_panel(SuperTwin)
-----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Creates a DRAM roofline panel for a Grafana dashboard.
 
@@ -1498,7 +1496,7 @@ Creates a DRAM roofline panel for a Grafana dashboard.
 .. _get_stream_results:
 
 9.9) get_stream_results(twin)
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Extracts STREAM benchmark results from the twin data.
 
@@ -1513,7 +1511,7 @@ Extracts STREAM benchmark results from the twin data.
 .. _get_stream_scaling_panel:
 
 9.10) get_stream_scaling_panel(SuperTwin)
------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates a Grafana panel for STREAM benchmark multicore scaling.
 
@@ -1528,7 +1526,7 @@ Generates a Grafana panel for STREAM benchmark multicore scaling.
 .. _get_hpcg_results:
 
 9.11) get_hpcg_results(twin)
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Extracts HPCG benchmark results from the twin data.
 
@@ -1543,7 +1541,7 @@ Extracts HPCG benchmark results from the twin data.
 .. _get_hpcg_scaling_panel:
 
 9.12) get_hpcg_scaling_panel(SuperTwin)
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Creates a Grafana panel for HPCG benchmark multicore scaling.
 
@@ -1558,7 +1556,7 @@ Creates a Grafana panel for HPCG benchmark multicore scaling.
 .. _generate_roofline_dashboard:
 
 9.13) generate_roofline_dashboard(SuperTwin)
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates a complete Grafana dashboard for roofline analysis.
 
@@ -1576,7 +1574,7 @@ Generates a complete Grafana dashboard for roofline analysis.
 .. _two_templates_one:
 
 10.1) two_templates_one(data, layout, datasource)
--------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Creates a Grafana panel template for displaying a Plotly figure related to the Cache Aware Roofline Model.
 
@@ -1593,7 +1591,7 @@ Creates a Grafana panel template for displaying a Plotly figure related to the C
 .. _two_templates_two:
 
 10.2) two_templates_two(data, layout, datasource)
--------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Creates a Grafana panel template for displaying system hardware information using a Plotly figure.
 
@@ -1610,7 +1608,7 @@ Creates a Grafana panel template for displaying system hardware information usin
 .. _two_templates_three:
 
 10.3) two_templates_three(data, layout, h, w, x, y, datasource, title, id)
---------------------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Creates a customizable Grafana panel template for displaying Plotly figures.
 
@@ -1633,7 +1631,7 @@ Creates a customizable Grafana panel template for displaying Plotly figures.
 .. _grafana_layout:
 
 10.4) grafana_layout(fig)
---------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Updates the layout configuration of a Plotly figure for a Grafana dashboard with specific aesthetic preferences.
 
@@ -1648,7 +1646,7 @@ Updates the layout configuration of a Plotly figure for a Grafana dashboard with
 .. _grafana_layout_2:
 
 10.5) grafana_layout_2(fig)
----------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Updates the layout configuration of a Plotly figure for a Grafana dashboard, tailored for a specific visual style.
 
@@ -1663,7 +1661,7 @@ Updates the layout configuration of a Plotly figure for a Grafana dashboard, tai
 .. _grafana_layout_3:
 
 10.6) grafana_layout_3(fig, xtickvals, ytitle)
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Customizes the layout of a Plotly figure for a Grafana dashboard with specific axis configurations.
 
@@ -1683,7 +1681,7 @@ Customizes the layout of a Plotly figure for a Grafana dashboard with specific a
 .. _generate_roofline_dashboard:
 
 11.1) generate_roofline_dashboard(SuperTwin)
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates a complete Grafana dashboard for a given SuperTwin instance with roofline and benchmark panels.
 
@@ -1698,7 +1696,7 @@ Generates a complete Grafana dashboard for a given SuperTwin instance with roofl
 .. _generate_visibility_sequence:
 
 11.2) generate_visibility_sequence(vis_dict)
---------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Creates a visibility sequence for Grafana panels based on a given visibility dictionary.
 
@@ -1713,7 +1711,7 @@ Creates a visibility sequence for Grafana panels based on a given visibility dic
 .. _generate_visibility_sequence_from_list:
 
 11.3) generate_visibility_sequence_from_list(vis_list)
-------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates a visibility sequence for Grafana panels from a given list of visibilities.
 
@@ -1728,7 +1726,7 @@ Generates a visibility sequence for Grafana panels from a given list of visibili
 .. _get_next_color:
 
 11.4) get_next_color()
-----------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Fetches the next color in the predefined color sequence for panel visualization.
 
@@ -1738,8 +1736,8 @@ Fetches the next color in the predefined color sequence for panel visualization.
 
 .. _round_power_of_2:
 
-round_power_of_2(number)
-------------------------
+11.5) round_power_of_2(number)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Rounds a given number to the nearest power of two.
 
@@ -1753,8 +1751,8 @@ Rounds a given number to the nearest power of two.
 
 .. _carm_eq:
 
-11.5) carm_eq(ai, bw, fp)
--------------------
+11.6) carm_eq(ai, bw, fp)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Calculates the minimum of AI times bandwidth and FP for the CARM benchmark.
 
@@ -1770,8 +1768,8 @@ Calculates the minimum of AI times bandwidth and FP for the CARM benchmark.
 
 .. _next_y:
 
-11.6) next_y()
---------
+11.7) next_y()
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates the next y-coordinate for placing panels in the Grafana dashboard.
 
@@ -1781,8 +1779,8 @@ Generates the next y-coordinate for placing panels in the Grafana dashboard.
 
 .. _next_panel_id:
 
-11.7) next_panel_id()
----------------
+11.8) next_panel_id()
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates the next unique panel ID for Grafana dashboard panels.
 
@@ -1792,8 +1790,8 @@ Generates the next unique panel ID for Grafana dashboard panels.
 
 .. _next_dash_id:
 
-11.8) next_dash_id()
---------------
+11.9) next_dash_id()
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates the next unique dashboard ID for Grafana dashboards.
 
@@ -1803,8 +1801,8 @@ Generates the next unique dashboard ID for Grafana dashboards.
 
 .. _return_line:
 
-11.9) return_line(ai, eq, name, color, dash)
---------------------------------------
+11.10) return_line(ai, eq, name, color, dash)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Creates a line configuration for Plotly figures in Grafana panels.
 
@@ -1822,8 +1820,8 @@ Creates a line configuration for Plotly figures in Grafana panels.
 
 .. _line_spec:
 
-11.10) line_spec(color, dash)
-----------------------
+11.11) line_spec(color, dash)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Specifies the style of a line for Plotly figures in Grafana panels.
 
@@ -1838,10 +1836,10 @@ Specifies the style of a line for Plotly figures in Grafana panels.
 
 .. _return_subtraces:
 
-return_subtraces(data, ai, thread, index)
-----------------------------------------
+11.12) return_subtraces(data, ai, thread, index)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-11.11) Generates sub-traces for Plotly figures in Grafana panels.
+Generates sub-traces for Plotly figures in Grafana panels.
 
 - **Parameters**:
 
@@ -1856,8 +1854,8 @@ return_subtraces(data, ai, thread, index)
 
 .. _thread_groups:
 
-11.12) thread_groups(fig, thread, color, data, ai, ai_list)
-----------------------------------------------------
+11.13) thread_groups(fig, thread, color, data, ai, ai_list)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Groups threads for Plotly figures in Grafana panels based on the given configuration.
 
@@ -1876,8 +1874,8 @@ Groups threads for Plotly figures in Grafana panels based on the given configura
 
 .. _fill_carm_res_dict:
 
-11.13) fill_carm_res_dict(carm_res, result)
-------------------------------------
+11.14) fill_carm_res_dict(carm_res, result)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Fills the CARM results dictionary with data from benchmark results.
 
@@ -1892,8 +1890,8 @@ Fills the CARM results dictionary with data from benchmark results.
 
 .. _get_carm_res_from_dt:
 
-11.14) get_carm_res_from_dt(SuperTwin)
--------------------------------
+11.15) get_carm_res_from_dt(SuperTwin)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Retrieves CARM results from a given SuperTwin instance.
 
@@ -1907,8 +1905,8 @@ Retrieves CARM results from a given SuperTwin instance.
 
 .. _get_hpcg_marks:
 
-11.15) get_hpcg_marks(hpcg_res)
-------------------------
+11.16) get_hpcg_marks(hpcg_res)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates HPCG benchmark marks from given results.
 
@@ -1922,8 +1920,8 @@ Generates HPCG benchmark marks from given results.
 
 .. _generate_carm_roofline:
 
-11.16) generate_carm_roofline(SuperTwin)
----------------------------------
+11.17) generate_carm_roofline(SuperTwin)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates a CARM roofline Plotly figure for a given SuperTwin instance.
 
@@ -1937,8 +1935,8 @@ Generates a CARM roofline Plotly figure for a given SuperTwin instance.
 
 .. _get_indicator_fields:
 
-11.17) get_indicator_fields(_string)
------------------------------
+11.18) get_indicator_fields(_string)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Extracts value, prefix, and suffix from a given string.
 
@@ -1952,8 +1950,8 @@ Extracts value, prefix, and suffix from a given string.
 
 .. _get_indicator_fields_vector:
 
-11.18) get_indicator_fields_vector(_array)
------------------------------------
+11.19) get_indicator_fields_vector(_array)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Extracts value, prefix, and suffix from a given array of strings.
 
@@ -1967,8 +1965,8 @@ Extracts value, prefix, and suffix from a given array of strings.
 
 .. _generate_info_panel:
 
-11.19) generate_info_panel(SuperTwin)
-------------------------------
+11.20) generate_info_panel(SuperTwin)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates an information panel as a Plotly figure for a given SuperTwin instance.
 
@@ -1982,8 +1980,8 @@ Generates an information panel as a Plotly figure for a given SuperTwin instance
 
 .. _get_stream_bench_data:
 
-11.20) get_stream_bench_data(td)
--------------------------
+11.21) get_stream_bench_data(td)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Retrieves STREAM benchmark data from twin description.
 
@@ -1997,8 +1995,8 @@ Retrieves STREAM benchmark data from twin description.
 
 .. _generate_x:
 
-11.21) generate_x(stream_res)
-----------------------
+11.22) generate_x(stream_res)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates x-axis data for a STREAM benchmark graph.
 
@@ -2012,8 +2010,8 @@ Generates x-axis data for a STREAM benchmark graph.
 
 .. _generate_y:
 
-11.22) generate_y(stream_res_key)
---------------------------
+11.23) generate_y(stream_res_key)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates y-axis data for a STREAM benchmark graph based on a specific key.
 
@@ -2027,8 +2025,8 @@ Generates y-axis data for a STREAM benchmark graph based on a specific key.
 
 .. _generate_stream_panel:
 
-11.23) generate_stream_panel(SuperTwin)
---------------------------------
+11.24) generate_stream_panel(SuperTwin)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates a STREAM benchmark panel as a Plotly figure for a given SuperTwin instance.
 
@@ -2042,8 +2040,8 @@ Generates a STREAM benchmark panel as a Plotly figure for a given SuperTwin inst
 
 .. _get_hpcg_bench_data:
 
-11.24) get_hpcg_bench_data(td)
------------------------
+11.25) get_hpcg_bench_data(td)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Retrieves HPCG benchmark data from twin description.
 
@@ -2057,8 +2055,8 @@ Retrieves HPCG benchmark data from twin description.
 
 .. _generate_hpcg_panel:
 
-11.25) generate_hpcg_panel(SuperTwin)
-------------------------------
+11.26) generate_hpcg_panel(SuperTwin)
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Generates an HPCG benchmark panel as a Plotly figure for a given SuperTwin instance.
 
@@ -2078,7 +2076,7 @@ Generates an HPCG benchmark panel as a Plotly figure for a given SuperTwin insta
 This module contains utility functions for managing and processing data for Grafana dashboards.
 
 Functions
----------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. function:: next_panel_id()
 
@@ -2228,7 +2226,7 @@ This script creates a Flask-based web server with MongoDB integration. It handle
 This module sets up a Flask server to handle data queries and integrates with a MongoDB database.
 
 Imports
--------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - The Flask module from Flask for creating the web server.
 - The CORS and cross_origin modules from flask_cors for handling Cross-Origin Resource Sharing (CORS).
@@ -2237,12 +2235,12 @@ Imports
 - The utils module for utility functions.
 
 Flask App Configuration
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The Flask app is configured with CORS to allow cross-origin requests. The app listens on all interfaces (0.0.0.0) at port 5052.
 
 Endpoints
----------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. function:: hello_world()
 
@@ -2257,7 +2255,7 @@ Endpoints
     Endpoint to query specific metrics based on the request. The function extracts the target metric from the request and returns its value along with a dummy timestamp.
 
 Initialization
---------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. function:: main(SuperTwin)
 
@@ -2266,12 +2264,12 @@ Initialization
     :param SuperTwin: An object representing a specific configuration or environment.
 
 Usage
------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To run the server, execute the script with Python. The main function takes a SuperTwin object as an argument, which contains configuration details like database address and name.
 
 Example
--------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: python
 
