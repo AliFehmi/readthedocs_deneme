@@ -2067,7 +2067,118 @@ Generates an HPCG benchmark panel as a Plotly figure for a given SuperTwin insta
 
 .. _get_thread_set:
 
-12) Flask Web Server with MongoDB Integration
+12) roofline_dashboard_old.py
++++++++++++++++++++++++++++++
+
+This module contains utility functions for managing and processing data for Grafana dashboards.
+
+Functions
+---------
+
+.. function:: next_panel_id()
+
+    Increments and returns a global panel ID.
+
+.. function:: get_json_static_panel(h, w, x, y, title, emp, target)
+
+    Generates a JSON representation of a static panel for Grafana dashboards.
+
+    :param h: Height of the panel.
+    :param w: Width of the panel.
+    :param x: X-axis position of the panel.
+    :param y: Y-axis position of the panel.
+    :param title: Title of the panel.
+    :param emp: Display mode of the panel (value or background).
+    :param target: Data target for the panel.
+    :return: A dictionary representing the JSON configuration of the panel.
+
+.. function:: get_stream_bw(twin)
+
+    Retrieves the maximum bandwidth from STREAM benchmark results.
+
+    :param twin: The twin data containing benchmark results.
+    :return: Maximum bandwidth in GB/s.
+
+.. function:: peak_theoretical_flop(no_procs, core_per_proc, clock_speed, no_fma_units, max_vector_size)
+
+    Calculates the peak theoretical floating-point operations per second.
+
+    :param no_procs: Number of processors.
+    :param core_per_proc: Number of cores per processor.
+    :param clock_speed: Clock speed in GHz.
+    :param no_fma_units: Number of FMA units.
+    :param max_vector_size: Maximum vector size.
+    :return: Peak theoretical GFLOP/s.
+
+.. function:: get_ridge_point(bw, flop)
+
+    Determines the ridge point in the roofline model.
+
+    :param bw: Bandwidth in GB/s.
+    :param flop: Floating-point operations per second in GFLOP/s.
+    :return: Ridge point value.
+
+.. function:: get_roof_values(max_bw, peak_g_flop, ridge_point)
+
+    Computes the roof values for the roofline model.
+
+    :param max_bw: Maximum bandwidth in GB/s.
+    :param peak_g_flop: Peak GFLOP/s.
+    :param ridge_point: Ridge point value.
+    :return: A tuple of lists containing AI and corresponding performance values.
+
+.. function:: get_flops_values(twin)
+
+    Extracts FLOPS values from HPCG benchmark results.
+
+    :param twin: The twin data containing benchmark results.
+    :return: Tuple of FLOPS values for different HPCG operations.
+
+.. function:: get_dram_roofline_panel(SuperTwin)
+
+    Generates the DRAM roofline panel configuration.
+
+    :param SuperTwin: The twin object with relevant data.
+    :return: Dictionary representing the DRAM roofline panel configuration.
+
+.. function:: get_stream_results(twin)
+
+    Retrieves STREAM benchmark results.
+
+    :param twin: The twin data containing benchmark results.
+    :return: A tuple containing results and thread set.
+
+.. function:: get_stream_scaling_panel(SuperTwin)
+
+    Generates the STREAM scaling panel configuration.
+
+    :param SuperTwin: The twin object with relevant data.
+    :return: Dictionary representing the STREAM scaling panel configuration.
+
+.. function:: get_hpcg_results(twin)
+
+    Retrieves HPCG benchmark results.
+
+    :param twin: The twin data containing benchmark results.
+    :return: A tuple containing results and thread set.
+
+.. function:: get_hpcg_scaling_panel(SuperTwin)
+
+    Generates the HPCG scaling panel configuration.
+
+    :param SuperTwin: The twin object with relevant data.
+    :return: Dictionary representing the HPCG scaling panel configuration.
+
+.. function:: generate_roofline_dashboard(SuperTwin)
+
+    Creates a complete roofline dashboard based on the provided twin object.
+
+    :param SuperTwin: The twin object with relevant data.
+    :return: URL of the generated Grafana dashboard.
+
+
+
+13) Flask Web Server with MongoDB Integration
 +++++++++++++++++++++++++++++++++++++++++++++
 
 This script creates a Flask-based web server with MongoDB integration. It handles HTTP requests and interacts with a MongoDB database to fetch and display data.
@@ -2106,7 +2217,64 @@ This script creates a Flask-based web server with MongoDB integration. It handle
 
 .. note:: Replace "dolap" and "10.36.54.195" with the appropriate arguments when calling the `main` function.
 
-13) Flask Web Server with InfluxDB Integration
+14) static_data.py
+++++++++++++++++++
+
+This module sets up a Flask server to handle data queries and integrates with a MongoDB database.
+
+Imports
+-------
+
+- The Flask module from Flask for creating the web server.
+- The CORS and cross_origin modules from flask_cors for handling Cross-Origin Resource Sharing (CORS).
+- The MongoClient from pymongo for MongoDB interactions.
+- The ObjectId, dumps, and loads functions from bson for BSON to JSON conversion.
+- The utils module for utility functions.
+
+Flask App Configuration
+-----------------------
+
+The Flask app is configured with CORS to allow cross-origin requests. The app listens on all interfaces (0.0.0.0) at port 5052.
+
+Endpoints
+---------
+
+.. function:: hello_world()
+
+    A basic route that returns 'OK' when accessed. Used for health checks or basic verification.
+
+.. function:: find_metrics()
+
+    Endpoint to find and return available metrics in the data. Responds to both GET and POST requests.
+
+.. function:: query_metrics()
+
+    Endpoint to query specific metrics based on the request. The function extracts the target metric from the request and returns its value along with a dummy timestamp.
+
+Initialization
+--------------
+
+.. function:: main(SuperTwin)
+
+    Initializes the Flask server and sets up database connections.
+
+    :param SuperTwin: An object representing a specific configuration or environment.
+
+Usage
+-----
+
+To run the server, execute the script with Python. The main function takes a SuperTwin object as an argument, which contains configuration details like database address and name.
+
+Example
+-------
+
+.. code-block:: python
+
+    if __name__ == '__main__':
+        main("dolap", "10.36.54.195")
+
+
+15) Flask Web Server with InfluxDB Integration
 ++++++++++++++++++++++++++++++++++++++++++++++
 
 This script creates a Flask-based web server integrated with InfluxDB for handling and processing time-series data.
@@ -2145,7 +2313,7 @@ This script creates a Flask-based web server integrated with InfluxDB for handli
 
 
 
-14)Remote Command Execution and Monitoring Script
+16) Remote Command Execution and Monitoring Script
 +++++++++++++++++++++++++++++++++++++++++++++++++
 
 This Python script is designed to execute commands and scripts on remote systems (referred to as "SuperTwins") and observe their execution time. It uses SSH for remote execution and SCP for file transfer. Additionally, it integrates with Performance Co-Pilot (PCP) to monitor the performance metrics during the execution.
