@@ -1,5 +1,5 @@
 INTERNALS
-===
+=========
 
 .. _internals:
 
