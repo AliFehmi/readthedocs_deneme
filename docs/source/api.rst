@@ -69,58 +69,67 @@ probing
 -------
   This directory includes scripts that probe the system to gather hardware and performance metrics.
 
-detect_utils.py: 
+- detect_utils.py: 
 ^^^^^^^^^^^^^^^^
   Utility functions for detecting system hardware and performance characteristics.
-  \n **Returns:** Hardware and performance data in a structured format.
+  
+  **Returns:** Hardware and performance data in a structured format.
 
-remote_probe.py: 
+- remote_probe.py: 
 ^^^^^^^^^^^^^^^^
   Connects to remote systems to gather necessary metrics for the digital twin.
-  \n **Returns:** System metrics and a unique identifier for the probed system.
+  
+  **Returns:** System metrics and a unique identifier for the probed system.
 
-system_query.py: 
+- system_query.py: 
 ^^^^^^^^^^^^^^^^
   Queries the system to retrieve detailed information about its state and capabilities.
-  \n **Returns:** A comprehensive report of the system's current state.
+  
+  **Returns:** A comprehensive report of the system's current state.
 
 sampling
 --------
   This directory contains scripts related to the sampling of system metrics and performance data.
 
-initiate.py: 
+- initiate.py: 
 ^^^^^^^^^^^^
   Initiates the sampling process for gathering system metrics.
-  \n **Returns:** The status of the sampling initiation process.
+  
+  **Returns:** The status of the sampling initiation process.
 
-sampling.py: 
+- sampling.py: 
 ^^^^^^^^^^^^
   Handles the sampling of various system metrics for performance analysis.
-  \n **Returns:** A process ID for the sampling task.
+  
+  **Returns:** A process ID for the sampling task.
 
 STREAM
 ------
   This directory contains scripts for running and parsing the STREAM benchmark, which measures memory bandwidth.
 
-benchmark.py: 
+- benchmark.py: 
 ^^^^^^^^^^^^^
   Manages the execution of the STREAM benchmark.
-  \n **Returns:** Benchmark results including bandwidth measurements.
+  
+  **Returns:** Benchmark results including bandwidth measurements.
 
-detect_utils.py: 
+- detect_utils.py: 
 ^^^^^^^^^^^^^^^^
   Detects system information relevant to the benchmark.
-  \n **Returns:** System information necessary for benchmark configuration.
+  
+  **Returns:** System information necessary for benchmark configuration.
 
-parse_cpuinfo.py: 
+- parse_cpuinfo.py: 
 ^^^^^^^^^^^^^^^^^
   Parses CPU information to configure the benchmark appropriately.
-  \n**Returns:** Parsed CPU data for benchmark setup.
+  
+  **Returns:** Parsed CPU data for benchmark setup.
 
-parse_likwid_topology.py: 
+- parse_likwid_topology.py: 
 ^^^^^^^^^^^^^^^^^^^^^^^^^
   Uses LIKWID to parse system topology for benchmark setup.
-  \n **Returns:** Topology data to guide benchmark execution.
+  
+  **Returns:** Topology data to guide benchmark execution.
 
 generate_dt.py
 ---------------
