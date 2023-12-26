@@ -1,7 +1,7 @@
 INTERNALS
 ===
 
-.. _dashboard:
+.. _internals:
 
 Dashboard
 ---------
