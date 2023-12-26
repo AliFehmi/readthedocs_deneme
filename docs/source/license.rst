@@ -1,6 +1,8 @@
 License
 =======
 
+.. _license:
+
 .. autosummary::
    :toctree: generated
 

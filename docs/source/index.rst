@@ -1,5 +1,13 @@
 Welcome to Super Twin's documentation!
 ======================================
+
+.. _index:
+
+.. autosummary::
+   :toctree: generated
+
+   lumache
+
 Digital SuperTwin
 _________________
 SuperTwin is a digital twin for high-performance computing clusters which creates a structured data representation over an HPC system, manages data input from a collection of tools and enable reasonings among them. Current capabilities of SuperTwin are:

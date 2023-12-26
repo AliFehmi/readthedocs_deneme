@@ -3,13 +3,14 @@ INTERNALS
 
 .. _internals:
 
-Dashboard
----------
-
 .. autosummary::
    :toctree: generated
 
    lumache
+
+
+Dashboard
+---------
 
 1) generate_plotly_panels_dd_go.py
 ++++++++++++++++++++++++++++++++++

@@ -3,6 +3,12 @@ Usage
 
 .. _installation:
 
+.. autosummary::
+   :toctree: generated
+
+   lumache
+
+
 Installation
 ------------
 
