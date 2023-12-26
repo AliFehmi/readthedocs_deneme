@@ -69,20 +69,23 @@ probing
 -------
   This directory includes scripts that probe the system to gather hardware and performance metrics.
 
-- detect_utils.py: 
+- **detect_utils.py: **
 ^^^^^^^^^^^^^^^^
+
   Utility functions for detecting system hardware and performance characteristics.
   
   **Returns:** Hardware and performance data in a structured format.
 
-- remote_probe.py: 
+- **remote_probe.py: **
 ^^^^^^^^^^^^^^^^
+
   Connects to remote systems to gather necessary metrics for the digital twin.
   
   **Returns:** System metrics and a unique identifier for the probed system.
 
-- system_query.py: 
+- **system_query.py:** 
 ^^^^^^^^^^^^^^^^
+
   Queries the system to retrieve detailed information about its state and capabilities.
   
   **Returns:** A comprehensive report of the system's current state.
@@ -91,14 +94,16 @@ sampling
 --------
   This directory contains scripts related to the sampling of system metrics and performance data.
 
-- initiate.py: 
+- **initiate.py: **
 ^^^^^^^^^^^^
+
   Initiates the sampling process for gathering system metrics.
   
   **Returns:** The status of the sampling initiation process.
 
-- sampling.py: 
+- **sampling.py: **
 ^^^^^^^^^^^^
+
   Handles the sampling of various system metrics for performance analysis.
   
   **Returns:** A process ID for the sampling task.
@@ -107,26 +112,30 @@ STREAM
 ------
   This directory contains scripts for running and parsing the STREAM benchmark, which measures memory bandwidth.
 
-- benchmark.py: 
+- **benchmark.py: **
 ^^^^^^^^^^^^^
+
   Manages the execution of the STREAM benchmark.
   
   **Returns:** Benchmark results including bandwidth measurements.
 
-- detect_utils.py: 
+- **detect_utils.py: **
 ^^^^^^^^^^^^^^^^
+
   Detects system information relevant to the benchmark.
   
   **Returns:** System information necessary for benchmark configuration.
 
-- parse_cpuinfo.py: 
+- **parse_cpuinfo.py: **
 ^^^^^^^^^^^^^^^^^
+
   Parses CPU information to configure the benchmark appropriately.
   
   **Returns:** Parsed CPU data for benchmark setup.
 
-- parse_likwid_topology.py: 
+- **parse_likwid_topology.py: **
 ^^^^^^^^^^^^^^^^^^^^^^^^^
+
   Uses LIKWID to parse system topology for benchmark setup.
   
   **Returns:** Topology data to guide benchmark execution.
