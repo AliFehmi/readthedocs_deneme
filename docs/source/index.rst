@@ -62,7 +62,7 @@ Contents
 .. toctree::
 
    usage
-   internals
+   INTERNALS
    api
    license
    how_to
